@@ -31,7 +31,7 @@ const Navbar = ({ toggleDarkMode }) => {
             className=" menu menu-sm dropdown-content bg-base-100  rounded-box z-50 mt-3 w-52 p-2 shadow text-black"
           >
             <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/allVolunteer"}>All volunteer</NavLink>
+            <NavLink to={"/apartment"}>Apartment</NavLink>
             {user && (
               <NavLink to={"/addVolunteer"}>Add Volunteer need Post</NavLink>
             )}
@@ -54,14 +54,17 @@ const Navbar = ({ toggleDarkMode }) => {
             )}
           </ul>
         </div>
+        <div className="flex items-center gap-2">
+          <img className="w-10 rounded-xl" src="https://i.ibb.co.com/ZBCgXsd/One-Build-Care-logo.jpg" alt="" />
         <h1 className="text-2xl font-medium sm:text-3xl md:text-4xl sm:font-semibold text-purple-500">
-          Volunteer<span className="ml-1">Network</span>
+          One<span className="ml-1">BuildCare</span>
         </h1>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex -mt-6">
         <ul className="menu menu-horizontal flex items-center px-1 gap-2 xl:gap-4 text-xl font-medium ">
           <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/allVolunteer"}>All volunteer</NavLink>
+          <NavLink to={"/apartment"}>Apartment</NavLink>
         </ul>
       </div>
       <div className="navbar-end sm:hidden">
@@ -84,6 +87,7 @@ const Navbar = ({ toggleDarkMode }) => {
                 {user?.displayName}
               </p>
             </li>
+            <li><NavLink to={'/dashboard'}>dashboard</NavLink></li>
             <li>
               <button
                 className="btn bg-purple-700 text-white"
@@ -173,6 +177,7 @@ const Navbar = ({ toggleDarkMode }) => {
                       {user?.displayName}
                     </p>
                   </li>
+                  <li className="text-xl font-medium"><NavLink to={'/dashboard'}>dashboard</NavLink></li>
                   <li>
                     <button
                       className="btn bg-purple-700 text-white"

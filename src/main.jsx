@@ -7,6 +7,7 @@ import AuthProvider from "./Context/AuthProvider";
 import Home from "./Pages/Home/Home";
 import Register from "./Pages/Authentication/Register";
 import Login from "./Pages/Authentication/Login";
+import Apartment from "./Pages/Apartment/Apartment";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/apartment',
+        element: <Apartment></Apartment>
       },
     ]
   },
