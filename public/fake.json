@@ -1,0 +1,256 @@
+{
+  "apartments": [
+    {
+      "apartment_image": "https://i.ibb.co.com/6PnPN2h/image-26.png",
+      "floor_no": 1,
+      "block_name": "A",
+      "apartment_no": 101,
+      "rent": 1200
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/J3f2SHK/image-27.png",
+      "floor_no": 2,
+      "block_name": "A",
+      "apartment_no": 201,
+      "rent": 1100
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/hY5Zy4p/image-28.png",
+      "floor_no": 3,
+      "block_name": "A",
+      "apartment_no": 301,
+      "rent": 1500
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/BGy2dsy/image-29.png",
+      "floor_no": 4,
+      "block_name": "A",
+      "apartment_no": 401,
+      "rent": 1000
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/wSPxZdv/image-30.png",
+      "floor_no": 5,
+      "block_name": "A",
+      "apartment_no": 501,
+      "rent": 800
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/MgTFV6t/image-31.png",
+      "floor_no": 6,
+      "block_name": "B",
+      "apartment_no": 601,
+      "rent": 1800
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/m8ZJpKx/image-32.png",
+      "floor_no": 1,
+      "block_name": "A",
+      "apartment_no": 102,
+      "rent": 1500
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/3vWFbnm/image-33.png",
+      "floor_no": 2,
+      "block_name": "B",
+      "apartment_no": 202,
+      "rent": 1700
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/FDmDsxd/image-34.png",
+      "floor_no": 3,
+      "block_name": "C",
+      "apartment_no": 302,
+      "rent": 1200
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/S0sZS9k/image-35.png",
+      "floor_no": 4,
+      "block_name": "D",
+      "apartment_no": 402,
+      "rent": 1100
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/0KRfb4z/image-36.png",
+      "floor_no": 6,
+      "block_name": "D",
+      "apartment_no": 602,
+      "rent": 1000
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/Cz61CT4/image-37.png",
+      "floor_no": 5,
+      "block_name": "C",
+      "apartment_no": 502,
+      "rent": 1200
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/yhTBLqX/image-38.png",
+      "floor_no": 2,
+      "block_name": "B",
+      "apartment_no": 203,
+      "rent": 1600
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/4f4HBVP/image-39.png",
+      "floor_no": 1,
+      "block_name": "C",
+      "apartment_no": 103,
+      "rent": 2000
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/b28LN1k/image-40.png",
+      "floor_no": 4,
+      "block_name": "A",
+      "apartment_no": 403,
+      "rent": 1500
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/QrLcrpK/image-41.png",
+      "floor_no": 5,
+      "block_name": "D",
+      "apartment_no": 503,
+      "rent": 1200
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/MD99xXL/image-42.png",
+      "floor_no": 3,
+      "block_name": "B",
+      "apartment_no": 303,
+      "rent": 1600
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/jDRXyBW/image-43.png",
+      "floor_no": 6,
+      "block_name": "A",
+      "apartment_no": 603,
+      "rent": 1000
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/9ZSTNF2/image-44.png",
+      "floor_no": 1,
+      "block_name": "C",
+      "apartment_no": 104,
+      "rent": 1800
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/CwH4bdn/image-45.png",
+      "floor_no": 3,
+      "block_name": "A",
+      "apartment_no": 304,
+      "rent": 1400
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/Zzfqz94/image-46.png",
+      "floor_no": 1,
+      "block_name": "D",
+      "apartment_no": 105,
+      "rent": 2000
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/C0ypB8R/image-47.png",
+      "floor_no": 5,
+      "block_name": "B",
+      "apartment_no": 504,
+      "rent": 1000
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/51rP5vJ/image-48.png",
+      "floor_no": 2,
+      "block_name": "A",
+      "apartment_no": 204,
+      "rent": 1600
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/FzTd0H8/image-49.png",
+      "floor_no": 1,
+      "block_name": "A",
+      "apartment_no": 106,
+      "rent": 2200
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/m5jWpX1/image-50.png",
+      "floor_no": 4,
+      "block_name": "C",
+      "apartment_no": 404,
+      "rent": 1400
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/Wf50SC4/image-51.png",
+      "floor_no": 6,
+      "block_name": "A",
+      "apartment_no": 604,
+      "rent": 1000
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/LRcxg0H/image-52.png",
+      "floor_no": 1,
+      "block_name": "D",
+      "apartment_no": 107,
+      "rent": 2000
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/JqSWSwd/image-53.png",
+      "floor_no": 3,
+      "block_name": "B",
+      "apartment_no": 305,
+      "rent": 1200
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/MR3hmmv/image-54.png",
+      "floor_no": 2,
+      "block_name": "C",
+      "apartment_no": 205,
+      "rent": 1600
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/zVFm3T2/image-55.png",
+      "floor_no": 1,
+      "block_name": "A",
+      "apartment_no": 108,
+      "rent": 1800
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/YZs612z/image-56.png",
+      "floor_no": 4,
+      "block_name": "D",
+      "apartment_no": 405,
+      "rent": 1600
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/gW1bcMp/image-57.png",
+      "floor_no": 6,
+      "block_name": "A",
+      "apartment_no": 605,
+      "rent": 1600
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/qxHR4cz/image-58.png",
+      "floor_no": 2,
+      "block_name": "C",
+      "apartment_no": 206,
+      "rent": 1600
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/tH1SZ4F/image-59.png",
+      "floor_no": 1,
+      "block_name": "D",
+      "apartment_no": 109,
+      "rent": 1700
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/B2gnGJV/image-60.png",
+      "floor_no": 3,
+      "block_name": "A",
+      "apartment_no": 306,
+      "rent": 1400
+    },
+    {
+      "apartment_image": "https://i.ibb.co.com/D4Q4qRY/image-61.png",
+      "floor_no": 2,
+      "block_name": "D",
+      "apartment_no": 207,
+      "rent": 1600
+    }
+]
+}

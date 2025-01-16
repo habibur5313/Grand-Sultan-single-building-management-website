@@ -40,11 +40,11 @@ const Contact = () => {
   };
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 bg-accent rounded-xl p-0 sm:p-5 md:p-10 xl:p-20">
       <h1 className="text-4xl mb-4 font-bold text-center uppercase text-purple-700">
         Contact Us
       </h1>
-      <div className="flex flex-col-reverse md:flex-row md:w-10/12 lg:w-8/12 mx-auto">
+      <div className="flex flex-col-reverse md:flex-row  w-full mx-auto">
         <form className="flex-1" ref={form} onSubmit={sendEmail}>
           <div className="form-control">
             <label className="label">
