@@ -11,12 +11,13 @@ import React, { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
 import axios from "axios";
 import auth from "../Firebase/firebase.init";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+const axiosPublic = useAxiosPublic()
   const googleProvider = new GoogleAuthProvider();
 
   const SignUpEmailAndPassword = (email, password) => {
@@ -34,8 +35,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const Update_information = (name, photo) => {
-    setLoading(true);
-    updateProfile(auth.currentUser, {
+    return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });
@@ -46,30 +46,27 @@ const AuthProvider = ({ children }) => {
     signOut(auth);
   };
 
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
-      const user = { email: currentUser?.email };
-      //       if (currentUser?.email) {
-      //         axios
-      //           .post(`${import.meta.env.VITE_server}/jwt`, user, {
-      //             withCredentials: true,
-      //           })
-      //           .then((res) => {
-      //             setLoading(true);
-      //           });
-      //       } else {
-      //         axios
-      //           .post(
-      //             `${import.meta.env.VITE_server}/logout`,
-      //             {},
-      //             { withCredentials: true }
-      //           )
-      //           .then((res) => {
-      //             setLoading(true);
-      //           });
-      //       }
+
+      
+      if (currentUser) {
+        const userInfo = { email: currentUser.email };
+        axiosPublic.post('/jwt', userInfo)
+            .then(res => {
+                if (res.data.token) {
+                    localStorage.setItem('access-token', res.data.token);
+                    setLoading(false);
+                }
+            })
+    }
+    else {
+        localStorage.removeItem('access-token');
+        setLoading(false);
+    }
+      
     });
     return () => {
       unSubscribe();
@@ -77,7 +74,6 @@ const AuthProvider = ({ children }) => {
   }, []);
   const AuthInfo = {
     user,
-    setUser,
     SignInEmailAndPassword,
     SignUpEmailAndPassword,
     handleSignOut,

@@ -6,13 +6,15 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { IoLogoGoogle } from "react-icons/io";
 import { AuthContext } from "../../Context/AuthProvider";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
   useEffect(() => {
     document.title = "Register | Volunteer Network";
   }, []);
-  const { setUser, SignUpEmailAndPassword, SignInGoogle, Update_information } =
+  const { SignUpEmailAndPassword, SignInGoogle, Update_information } =
     useContext(AuthContext);
+    const axiosPublic = useAxiosPublic()
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState();
@@ -43,16 +45,25 @@ const Register = () => {
     SignUpEmailAndPassword(email, password)
       .then((res) => {
         setError();
-        setUser(res.user);
-        Update_information(name, photo);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Register successfully",
-          showConfirmButton: false,
-          timer: 1000,
+        Update_information(name, photo).then(() => {
+          // create user entry in the database
+          const userInfo = {
+            name,
+            email,
+          };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User created successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
         });
-        navigate("/");
       })
 
       .catch((err) => {
@@ -69,17 +80,25 @@ const Register = () => {
 
   const handleGoogleLogin = () => {
     SignInGoogle()
-      .then((res) => {
-        setUser(res.user);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Register successfully",
-          showConfirmButton: false,
-          timer: 1000,
-        });
-        navigate("/");
-      })
+   .then((res) => {
+      
+      const userInfo = {
+        name: res.user.displayName,
+        email: res.user.email,
+      };
+      axiosPublic.post("/users", userInfo).then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User created successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        }
+      });
+    })
       .catch((err) => {
         Swal.fire({
           position: "top-center",
@@ -175,15 +194,16 @@ const Register = () => {
             <button className="btn btn-primary">Register</button>
           </div>
         </form>
-       
+
         <div className="divider text-2xl font-medium">OR</div>
         <button
           onClick={handleGoogleLogin}
           className="btn text-xl font-medium mt-2 mb-4"
         >
-          <IoLogoGoogle />Continue with Google
+          <IoLogoGoogle />
+          Continue with Google
         </button>
-        <p className="text-center mb-4 text-black" >
+        <p className="text-center mb-4 text-black">
           {" "}
           Have An Account ?{" "}
           <Link className="text-red-700 text-xl font-medium" to={"/login"}>

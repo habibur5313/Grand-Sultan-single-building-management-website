@@ -4,16 +4,17 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { IoLogoGoogle } from "react-icons/io";
 import { AuthContext } from "../../Context/AuthProvider";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Login = () => {
   useEffect(() => {
     document.title = "Login | Volunteer Network ";
   }, []);
-  const { user, setUser, SignInEmailAndPassword, SignInGoogle, setLoginEmail } =
-    useContext(AuthContext);
+  const { SignInEmailAndPassword, SignInGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
+  const axiosPublic = useAxiosPublic();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,7 +22,6 @@ const Login = () => {
     const password = e.target.password.value;
     SignInEmailAndPassword(email, password)
       .then((res) => {
-        setUser(res.user);
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -46,15 +46,20 @@ const Login = () => {
   const handleGoogleLogin = () => {
     SignInGoogle()
       .then((res) => {
-        setUser(res.user);
-        Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Login successfully",
-                    showConfirmButton: false,
-                    timer: 1000,
-                  });
-        navigate("/");
+        const userInfo = {
+          name: res.user.displayName,
+          email: res.user.email,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User created successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        });
       })
       .catch((err) => {
         Swal.fire({
@@ -65,11 +70,6 @@ const Login = () => {
           timer: 1000,
         });
       });
-  };
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setLoginEmail(e.target.value);
   };
 
   return (
@@ -85,7 +85,6 @@ const Login = () => {
               <span className="label-text">Email</span>
             </label>
             <input
-              onChange={handleChange}
               type="email"
               name="email"
               placeholder="email"

@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import useAgreement from "../../Hooks/useAgreement";
 
 const Navbar = ({ toggleDarkMode }) => {
   const { user, handleSignOut } = useContext(AuthContext);
   const { pathname } = useLocation();
+  
 
   return (
     <div className=" navbar  px-2 md:px-6 xl:px-10  flex items-center border fixed container mx-auto text-white bg-black bg-opacity-20 z-50 rounded-xl  ">
