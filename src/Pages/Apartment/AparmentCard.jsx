@@ -26,6 +26,7 @@ const ApartmentCard = ({ apartment }) => {
     axiosSecure
       .post(`/agreements/${user.email}`, agreementInfo)
       .then((res) => {
+        
         if (res.data.insertedId) {
           Swal.fire({
             position: "top-center",
@@ -34,11 +35,12 @@ const ApartmentCard = ({ apartment }) => {
             showConfirmButton: false,
             timer: 1500,
           });
-        } else {
+        }
+         if(res.data.insertedId === null) {
           Swal.fire({
             position: "top-center",
             icon: "error",
-            title: "One User One Agreement",
+            title: res.data.message,
             showConfirmButton: false,
             timer: 1500,
           });

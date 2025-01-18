@@ -19,6 +19,9 @@ import MakeAnnouncement from "./Pages/Dashboard/Admin/MakeAnnouncement";
 import AgreementRequests from "./Pages/Dashboard/Admin/AgreementRequests";
 import ManageCoupons from "./Pages/Dashboard/Admin/ManageCoupons";
 import axios from "axios";
+import MemberProfile from "./Pages/Dashboard/Member/MemberProfile";
+import MakePayment from "./Pages/Dashboard/Member/MakePayment";
+import PaymentHistory from "./Pages/Dashboard/Member/PaymentHistory";
 
 const queryClient = new QueryClient();
 
@@ -56,23 +59,6 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      // user path
-      {
-        path: "myProfile",
-        element: (
-          <PrivateRoute>
-            <MyProfile></MyProfile>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "announcement",
-        element: (
-          <PrivateRoute>
-            <Announcement></Announcement>
-          </PrivateRoute>
-        ),
-      },
       // admin path
       {
         path: "adminProfile",
@@ -93,6 +79,40 @@ const router = createBrowserRouter([
       {
         path: "manageCoupons",
         element: <ManageCoupons></ManageCoupons> ,
+      },
+      // member path
+      {
+           path: 'memberProfile',
+           element: <PrivateRoute><MemberProfile></MemberProfile></PrivateRoute>
+      },
+      {
+           path: 'makePayment',
+           element: <PrivateRoute><MakePayment></MakePayment></PrivateRoute>
+      },
+      {
+           path: 'paymentHistory',
+           element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
+      },
+      {
+           path: 'memberAnnouncement',
+           element: <PrivateRoute><MakeAnnouncement></MakeAnnouncement></PrivateRoute>
+      },
+       // user path
+       {
+        path: "userProfile",
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "userAnnouncement",
+        element: (
+          <PrivateRoute>
+            <Announcement></Announcement>
+          </PrivateRoute>
+        ),
       },
     ],
   },
