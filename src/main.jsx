@@ -22,6 +22,7 @@ import axios from "axios";
 import MemberProfile from "./Pages/Dashboard/Member/MemberProfile";
 import MakePayment from "./Pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "./Pages/Dashboard/Member/PaymentHistory";
+import AdminRoute from "./Route/AdminRoute";
 
 const queryClient = new QueryClient();
 
@@ -62,23 +63,23 @@ const router = createBrowserRouter([
       // admin path
       {
         path: "adminProfile",
-        element: <AdminProfile></AdminProfile>,
+        element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>,
       },
       {
         path: "manageMembers",
-        element: <ManageMembers></ManageMembers> ,
+        element: <AdminRoute><ManageMembers></ManageMembers></AdminRoute> ,
       },
       {
         path: "makeAnnouncement",
-        element: <MakeAnnouncement></MakeAnnouncement> ,
+        element: <AdminRoute><MakeAnnouncement></MakeAnnouncement></AdminRoute> ,
       },
       {
         path: "agreementRequests",
-        element: <AgreementRequests></AgreementRequests> ,
+        element: <AdminRoute><AgreementRequests></AgreementRequests></AdminRoute> ,
       },
       {
         path: "manageCoupons",
-        element: <ManageCoupons></ManageCoupons> ,
+        element: <AdminRoute><ManageCoupons></ManageCoupons></AdminRoute> ,
       },
       // member path
       {

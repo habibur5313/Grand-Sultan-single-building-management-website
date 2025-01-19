@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useAgreement from "../../Hooks/useAgreement";
+import useRole from "../../Hooks/useRole";
 
 const Navbar = ({ toggleDarkMode }) => {
   const { user, handleSignOut } = useContext(AuthContext);
   const { pathname } = useLocation();
+  const {role} = useRole()
   
 
   return (
@@ -89,7 +91,7 @@ const Navbar = ({ toggleDarkMode }) => {
                 {user?.displayName}
               </p>
             </li>
-            <li><NavLink to={'/dashboard'}>dashboard</NavLink></li>
+            <li><NavLink to={`/dashboard/${role ? role : 'user'}Profile`}>dashboard</NavLink></li>
             <li>
               <button
                 className="btn bg-purple-700 text-white"
@@ -179,7 +181,7 @@ const Navbar = ({ toggleDarkMode }) => {
                       {user?.displayName}
                     </p>
                   </li>
-                  <li className="text-xl font-medium"><NavLink to={'/dashboard'}>dashboard</NavLink></li>
+                  <li className="text-xl font-medium"><NavLink to={`/dashboard/${role ? role : 'user'}Profile`}>dashboard</NavLink></li>
                   <li>
                     <button
                       className="btn bg-purple-700 text-white"
