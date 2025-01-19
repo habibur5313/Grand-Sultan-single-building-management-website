@@ -8,11 +8,16 @@ const AllUsers = () => {
   const [requests,refetch] = useAgreementsRequest()
   
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <>
+    <h1 className="text-3xl uppercase mt-10 font-semibold animate__animated animate__pulse animate__infinite infinite text-purple-700 text-center">
+        agreement requests is here
+      </h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
 {
                     requests.map(request => <RequestCard key={request._id} request={request}></RequestCard>)
 }
     </div>
+    </>
   );
 };
 
