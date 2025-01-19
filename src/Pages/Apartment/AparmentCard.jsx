@@ -11,6 +11,7 @@ const ApartmentCard = ({ apartment }) => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  
   const handleAddCart = () => {
     const agreementInfo = {
       name: user.displayName,
@@ -22,6 +23,7 @@ const ApartmentCard = ({ apartment }) => {
       floor_no,
       rent,
       status: "pending",
+      date: new Date()
     };
     axiosSecure
       .post(`/agreements/${user.email}`, agreementInfo)

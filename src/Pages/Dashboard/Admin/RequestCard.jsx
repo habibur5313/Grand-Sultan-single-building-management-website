@@ -1,7 +1,10 @@
 import React from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAgreementsRequest from "../../../Hooks/useAgrementsRequest";
+import Swal from "sweetalert2";
 
 const RequestCard = ({ request }) => {
+  const [,refetch] = useAgreementsRequest()
   const {
     name,
     email,
@@ -18,6 +21,14 @@ const RequestCard = ({ request }) => {
     // console.log(request,button);
     axiosSecure.patch(`/agreementsRequest/${_id}?button=${button}&email=${email}`)
     .then(res => {
+      Swal.fire({
+                  position: "top-center",
+                  icon: "success",
+                  title: `${button} successfully`,
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+      refetch()
       console.log(res.data);
       
     })

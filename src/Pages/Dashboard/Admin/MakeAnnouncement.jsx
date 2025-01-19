@@ -41,7 +41,7 @@ const MakeAnnouncement = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text ml-4">Title</span>
+              <span className="label-text ml-4">Description</span>
             </label>
             <textarea
               className="textarea textarea-bordered mx-4"
