@@ -38,8 +38,6 @@ const router = createBrowserRouter([
       {
         path: "/apartment",
         element: <Apartment></Apartment>,
-        loader: () =>
-          axios.get(`${import.meta.env.VITE_api}/apartments`),
       
       },
     ],

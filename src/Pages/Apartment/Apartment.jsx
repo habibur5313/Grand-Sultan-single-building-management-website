@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ApartmentCard from "./AparmentCard";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import { useLoaderData } from "react-router-dom";
 
 const Apartment = () => {
-  const { data } = useLoaderData();
-  const [apartments, setApartments] = useState(data);
+  const [apartments, setApartments] = useState([]);
   const axiosPublic = useAxiosPublic();
 
   const handleSearchByRent = (e) => {
@@ -19,6 +17,41 @@ const Apartment = () => {
       });
     }
   };
+  // pagination
+
+  const [selectedCount, setSelectedCount] = useState(1);
+  const [ total,setTotal]  = useState(0)
+  // console.log(count);
+  const countPages = Math.ceil(total / 6);
+  const pages = [...Array(countPages).keys()];
+
+  useEffect(() => {
+    axiosPublic.get('/apartmentsCount')
+    .then(res => {
+      setTotal(res.data.total);
+      
+    })
+  },[])
+
+  useEffect(() => {
+    axiosPublic.get(`/apartments?page=${selectedCount}&limit=6`)
+    .then(res => {
+      setApartments(res.data);
+      
+    })
+  },[selectedCount])
+  
+
+  const handlePrevPage = () =>    {
+    if(selectedCount > 1){
+      setSelectedCount(selectedCount - 1)
+    }}
+
+  const handleNextPage = () =>    {
+    if(selectedCount < countPages ){
+      setSelectedCount(selectedCount + 1)
+    }
+  }
 
   return (
     <div>
@@ -32,7 +65,7 @@ const Apartment = () => {
           id=""
         />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {apartments.map((apartment) => (
           <ApartmentCard
             key={apartment._id}
@@ -40,6 +73,21 @@ const Apartment = () => {
           ></ApartmentCard>
         ))}
       </div>
+     <div className="flex items-center justify-center gap-3 mt-5">
+        <button className="btn mx-3 bg-purple-700 text-xl font-medium text-white" onClick={handlePrevPage}>Prev</button>
+        {pages.map((page) => (
+          <button
+          
+            onClick={() => setSelectedCount(page + 1)}
+            className={`${selectedCount === page + 1 ? "selected btn" : undefined} text-xl font-medium m-3`}
+            key={page}
+            
+          >
+            {page + 1}
+          </button>
+        ))}
+        <button className="btn mx-3 bg-purple-700 text-xl font-medium text-white" onClick={handleNextPage}>Next</button>
+     </div>
     </div>
   );
 };

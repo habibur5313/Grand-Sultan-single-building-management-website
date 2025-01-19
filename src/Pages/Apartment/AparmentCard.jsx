@@ -59,11 +59,11 @@ const ApartmentCard = ({ apartment }) => {
       });
   };
   return (
-    <div className=" bg-base-100 shadow-xl">
-      <div className="h-full image-full border">
+    <div className=" bg-base-100 shadow-xl rounded-xl">
+      <div className="h-full image-full">
         <figure className="">
           <img
-            className="w-full h-[300px] object-cover"
+            className="w-full h-[300px] object-cover rounded-tr-xl rounded-tl-xl"
             src={apartment_image}
             alt=""
           />
