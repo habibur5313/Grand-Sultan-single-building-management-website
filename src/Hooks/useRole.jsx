@@ -5,6 +5,7 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useRole = () => {
   const { user } = useContext(AuthContext); 
+  
   const axiosPublic = useAxiosPublic();
   const { data: role = '', isLoading } = useQuery({
     queryKey: ["role", user?.email],

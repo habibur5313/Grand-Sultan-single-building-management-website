@@ -23,6 +23,7 @@ import MemberProfile from "./Pages/Dashboard/Member/MemberProfile";
 import MakePayment from "./Pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "./Pages/Dashboard/Member/PaymentHistory";
 import AdminRoute from "./Route/AdminRoute";
+import MemberAnnouncement from "./Pages/Dashboard/Member/MemberAnnouncement";
 
 const queryClient = new QueryClient();
 
@@ -94,7 +95,7 @@ const router = createBrowserRouter([
       },
       {
            path: 'memberAnnouncement',
-           element: <PrivateRoute><MakeAnnouncement></MakeAnnouncement></PrivateRoute>
+           element: <PrivateRoute><MemberAnnouncement></MemberAnnouncement></PrivateRoute>
       },
        // user path
        {
