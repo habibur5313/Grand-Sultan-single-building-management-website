@@ -1,11 +1,9 @@
 import React from "react";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAgreementsRequest from "../../../Hooks/useAgrementsRequest";
 import RequestCard from "./RequestCard";
 
 const AllUsers = () => {
-  const axiosSecure = useAxiosSecure();
-  const [requests,refetch] = useAgreementsRequest()
+  const [requests] = useAgreementsRequest()
   
   return (
     <>
