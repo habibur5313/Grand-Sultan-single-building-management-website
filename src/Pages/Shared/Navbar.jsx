@@ -1,14 +1,11 @@
 import React, { useContext } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
-import useAgreement from "../../Hooks/useAgreement";
 import useRole from "../../Hooks/useRole";
 
 const Navbar = ({ toggleDarkMode }) => {
   const { user, handleSignOut } = useContext(AuthContext);
-  const { pathname } = useLocation();
-  const {role} = useRole()
-  
+  const { role } = useRole();
 
   return (
     <div className=" navbar  px-2 md:px-6 xl:px-10  flex items-center border fixed container mx-auto text-white bg-black bg-opacity-20 z-50 rounded-xl  ">
@@ -36,33 +33,17 @@ const Navbar = ({ toggleDarkMode }) => {
           >
             <NavLink to={"/"}>Home</NavLink>
             <NavLink to={"/apartment"}>Apartment</NavLink>
-            {user && (
-              <NavLink to={"/addVolunteer"}>Add Volunteer need Post</NavLink>
-            )}
-            {user && (
-              <li>
-                <a>Manage my posts</a>
-                <ul className="p-2 ">
-                  <li>
-                    <NavLink to={"/myVolunteerNeedPosts"}>
-                      My volunteer need posts
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={"/myVolunteerRequestPosts"}>
-                      My Volunteer Request Post
-                    </NavLink>
-                  </li>
-                </ul>
-              </li>
-            )}
           </ul>
         </div>
         <div className="flex items-center gap-2">
-          <img className="w-10 rounded-xl" src="https://i.ibb.co.com/ZBCgXsd/One-Build-Care-logo.jpg" alt="" />
-        <h1 className="text-2xl font-medium sm:text-3xl md:text-4xl sm:font-semibold text-purple-500">
-          One<span className="ml-1">BuildCare</span>
-        </h1>
+          <img
+            className="w-10 rounded-xl"
+            src="https://i.ibb.co.com/ZBCgXsd/One-Build-Care-logo.jpg"
+            alt=""
+          />
+          <h1 className="text-2xl font-medium sm:text-3xl md:text-4xl sm:font-semibold text-purple-500">
+            One<span className="ml-1">BuildCare</span>
+          </h1>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex -mt-6">
@@ -91,7 +72,11 @@ const Navbar = ({ toggleDarkMode }) => {
                 {user?.displayName}
               </p>
             </li>
-            <li><NavLink to={`/dashboard/${role ? role : 'user'}Profile`}>dashboard</NavLink></li>
+            <li>
+              <NavLink to={`/dashboard/${role ? role : "user"}Profile`}>
+                dashboard
+              </NavLink>
+            </li>
             <li>
               <button
                 className="btn bg-purple-700 text-white"
@@ -102,13 +87,7 @@ const Navbar = ({ toggleDarkMode }) => {
             </li>
           </ul>
         </div>
-        {user ? (
-          ""
-        ) : pathname === "/login" ? (
-          <Link className="btn mr-5 bg-purple-700 text-white" to={"/register"}>
-            Sign UP
-          </Link>
-        ) : (
+        {user ? '' : (
           <Link className="btn mr-5 bg-purple-700 text-white" to={"/login"}>
             Sign In
           </Link>
@@ -128,42 +107,6 @@ const Navbar = ({ toggleDarkMode }) => {
           </button>
           {user ? (
             <div className="flex items-center gap-4 relative">
-              <div className="dropdown text-black">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn m-1 text-xl font-medium"
-                >
-                  My Profile
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu text-xl font-medium  space-y-4 py-4 mt-2 rounded-box bg-zinc-200 z-50  w-60 p-2 shadow"
-                >
-                  {user && (
-                    <NavLink to={"/addVolunteer"}>
-                      Add Volunteer need Post
-                    </NavLink>
-                  )}
-                  <li>
-                    <details>
-                      <summary>Manage my posts</summary>
-                      <ul className="p-2 z-50 shadow">
-                        <li>
-                          <NavLink to={"/myVolunteerNeedPosts"}>
-                            My volunteer need posts
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink to={"/myVolunteerRequestPosts"}>
-                            My Volunteer Request Post
-                          </NavLink>
-                        </li>
-                      </ul>
-                    </details>
-                  </li>
-                </ul>
-              </div>
               <div className="dropdown dropdown-hover">
                 <div tabIndex={0} role="button" className=" m-1">
                   <img
@@ -181,7 +124,11 @@ const Navbar = ({ toggleDarkMode }) => {
                       {user?.displayName}
                     </p>
                   </li>
-                  <li className="text-xl font-medium"><NavLink to={`/dashboard/${role ? role : 'user'}Profile`}>dashboard</NavLink></li>
+                  <li className="text-xl font-medium">
+                    <NavLink to={`/dashboard/${role ? role : "user"}Profile`}>
+                      dashboard
+                    </NavLink>
+                  </li>
                   <li>
                     <button
                       className="btn bg-purple-700 text-white"
@@ -193,18 +140,14 @@ const Navbar = ({ toggleDarkMode }) => {
                 </ul>
               </div>
             </div>
-          ) : pathname === "/login" ? (
+          ) : 
             <Link
               className="btn mr-5 bg-purple-700 text-white"
-              to={"/register"}
+              to={"/login"}
             >
-              Sign UP
-            </Link>
-          ) : (
-            <Link className="btn mr-5 bg-purple-700 text-white" to={"/login"}>
               Sign In
             </Link>
-          )}
+          }
         </div>
       </div>
     </div>

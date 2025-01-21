@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAcceptedRequest from "../../../Hooks/useAcceptedRequest";
 
 const MakePayment = () => {
@@ -20,13 +20,19 @@ const MakePayment = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  const handleMonth = (e) => {
+    e.preventDefault();
+    const month = e.target.value;
+    console.log(month);
+  };
   return (
     <div>
       <div className="">
         <h1 className="text-3xl mt-5 font-semibold text-purple-700 text-center">
           Make Payments
         </h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="text-black">
           {/* email and name */}
           <div className="px-4 flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
             <div className="form-control w-full">
@@ -36,7 +42,7 @@ const MakePayment = () => {
               <input
                 value={email}
                 type="text"
-                className="input input-bordered h-14 w-full text-black"
+                className="input input-bordered h-14 w-full "
               />
             </div>
             <div className="form-control w-full">
@@ -46,7 +52,7 @@ const MakePayment = () => {
               <input
                 value={name}
                 type="text"
-                className="input input-bordered w-full h-14 text-black"
+                className="input input-bordered w-full h-14 "
               />
             </div>
           </div>
@@ -59,7 +65,7 @@ const MakePayment = () => {
               <input
                 value={floor_no}
                 type="text"
-                className="input input-bordered h-14 w-full text-black"
+                className="input input-bordered h-14 w-full "
               />
             </div>
             <div className="form-control w-full">
@@ -69,7 +75,7 @@ const MakePayment = () => {
               <input
                 value={block_name}
                 type="text"
-                className="input input-bordered w-full h-14 text-black"
+                className="input input-bordered w-full h-14 "
               />
             </div>
           </div>
@@ -82,7 +88,7 @@ const MakePayment = () => {
               <input
                 value={apartment_no}
                 type="text"
-                className="input input-bordered h-14 w-full text-black"
+                className="input input-bordered h-14 w-full "
               />
             </div>
             <div className="form-control w-full">
@@ -92,17 +98,53 @@ const MakePayment = () => {
               <input
                 value={rent}
                 type="text"
-                className="input input-bordered w-full h-14 text-black"
+                className="input input-bordered w-full h-14 "
               />
             </div>
           </div>
-          {/* submit */}
-          <div className="px-4 mt-10">
-            <NavLink>
-              <button className="btn btn-accent">Submit</button>
-            </NavLink>
+          {/* month and date */}
+          <div className="px-4 flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Request Accept Date</span>
+              </label>
+              <input
+                value={date?.split("T")[0]}
+                type="text"
+                className="input input-bordered h-14 w-full "
+              />
+            </div>
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Select Month</span>
+              </label>
+              <select
+                onChange={handleMonth}
+                name="month"
+                defaultValue={"Select Month"}
+                className="select select-bordered w-full h-14"
+              >
+                <option disabled>Select Month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+            </div>
           </div>
         </form>
+        {/* submit */}
+        <div className="px-4 mt-10">
+          <Link to={'/dashboard/payments'}><button className="btn btn-accent">Submit</button></Link>
+        </div>
       </div>
     </div>
   );

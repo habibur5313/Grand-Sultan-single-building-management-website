@@ -24,6 +24,7 @@ import MakePayment from "./Pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "./Pages/Dashboard/Member/PaymentHistory";
 import AdminRoute from "./Route/AdminRoute";
 import MemberAnnouncement from "./Pages/Dashboard/Member/MemberAnnouncement";
+import Payments from "./Pages/Dashboard/Member/Payments";
 
 const queryClient = new QueryClient();
 
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
       {
            path: 'makePayment',
            element: <PrivateRoute><MakePayment></MakePayment></PrivateRoute>
+      },
+      {
+           path: 'payments',
+           element: <PrivateRoute><Payments></Payments></PrivateRoute>
       },
       {
            path: 'paymentHistory',
