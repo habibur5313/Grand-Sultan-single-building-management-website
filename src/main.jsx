@@ -18,13 +18,13 @@ import ManageMembers from "./Pages/Dashboard/Admin/ManageMembers";
 import MakeAnnouncement from "./Pages/Dashboard/Admin/MakeAnnouncement";
 import AgreementRequests from "./Pages/Dashboard/Admin/AgreementRequests";
 import ManageCoupons from "./Pages/Dashboard/Admin/ManageCoupons";
-import axios from "axios";
 import MemberProfile from "./Pages/Dashboard/Member/MemberProfile";
 import MakePayment from "./Pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "./Pages/Dashboard/Member/PaymentHistory";
 import AdminRoute from "./Route/AdminRoute";
 import MemberAnnouncement from "./Pages/Dashboard/Member/MemberAnnouncement";
-import Payments from "./Pages/Dashboard/Member/Payments";
+import Payments from "./Pages/Dashboard/Member/Payments/Payments";
+
 
 const queryClient = new QueryClient();
 
