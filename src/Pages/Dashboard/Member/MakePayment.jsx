@@ -1,30 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useAcceptedRequest from "../../../Hooks/useAcceptedRequest";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const MakePayment = () => {
   const { acceptRequest } = useAcceptedRequest();
+  const {user} = useContext(AuthContext)
+  const axiosSecure = useAxiosSecure()
   const {
     name,
     email,
-    apartment_id,
-    apartment_image,
     apartment_no,
     block_name,
     floor_no,
     rent,
-    request_id,
     date,
-    status,
   } = acceptRequest;
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
   const handleMonth = (e) => {
     e.preventDefault();
-    const month = e.target.value;
-    console.log(month);
+const month = e.target.value;
+    axiosSecure.patch(`/acceptRequest/${user.email}?month=${month}`)
+    .then(res => {
+      // console.log(res.data);
+      
+    })
   };
   return (
     <div>
@@ -32,7 +33,7 @@ const MakePayment = () => {
         <h1 className="text-3xl mt-5 font-semibold text-purple-700 text-center">
           Make Payments
         </h1>
-        <form onSubmit={handleSubmit} className="text-black">
+        <form className="text-black">
           {/* email and name */}
           <div className="px-4 flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
             <div className="form-control w-full">
