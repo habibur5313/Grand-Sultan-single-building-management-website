@@ -74,7 +74,7 @@ const Apartment = () => {
       {apartments.length >= 1 && (
         <div className="flex items-center justify-center gap-3 mt-5">
           <button
-            className="btn mx-3 bg-purple-700 text-xl font-medium text-white"
+            className="btn mx-3 bg-purple-700 sm:text-xl sm:font-medium text-white"
             onClick={handlePrevPage}
           >
             Prev
@@ -84,14 +84,14 @@ const Apartment = () => {
               onClick={() => setSelectedCount(page + 1)}
               className={`${
                 selectedCount === page + 1 ? "selected btn" : undefined
-              } text-xl font-medium m-3`}
+              } sm:text-xl sm:font-medium sm:m-3`}
               key={page}
             >
               {page + 1}
             </button>
           ))}
           <button
-            className="btn mx-3 bg-purple-700 text-xl font-medium text-white"
+            className="btn mx-3 bg-purple-700 sm:text-xl sm:font-medium text-white"
             onClick={handleNextPage}
           >
             Next

@@ -86,18 +86,27 @@ const CheckOutForm = () => {
  }
             
 
-            const res = await axiosSecure.post(`/payments?acceptRequestId=${acceptRequest._id}`, payment);
-            console.log('payment saved', res.data);
+            const res = await axiosSecure.post(`/payments?acceptRequestId=${acceptRequest._id}&email=${user.email}`, payment);
+            console.log('payment saved', res.data.message);
             refetch();
             if (res.data?.paymentResult?.insertedId) {
                 Swal.fire({
-                    position: "top-end",
+                    position: "top-center",
                     icon: "success",
                     title: "Thank you for the taka paisa",
                     showConfirmButton: false,
                     timer: 1500
                 });
                 navigate('/dashboard/paymentHistory')
+            }
+            else{
+              Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: res.data.message,
+                showConfirmButton: false,
+                timer: 1500
+            });
             }
 
         }
