@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { MdDeleteForever } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { GrUpdate } from "react-icons/gr";
 const ManageCoupons = () => {
   const [open, setOpen] = useState(false);
 
@@ -49,17 +48,17 @@ const ManageCoupons = () => {
 
   const handleRemove = (id) => {
     Swal.fire({
-      title: "Do you want to save the changes?",
+      title: "Do you want to delete this coupon code?",
       showDenyButton: true,
       showCancelButton: true,
-      confirmButtonText: "Save",
-      denyButtonText: `Don't save`,
+      confirmButtonText: "Delete",
+      denyButtonText: `Don't delete`,
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         axiosSecure.delete(`/couponCodes/${id}`).then((res) => {
           if(res.data.deletedCount){
-                    Swal.fire("Saved!", "", "success");
+                    Swal.fire("Deleted", "", "not deleted");
                     refetch()
           }
         });
@@ -147,12 +146,18 @@ const ManageCoupons = () => {
                 <td>{item.couponCode}</td>
                 <td>{item.discountPercentage}%</td>
                 <td>{item.couponDescription}</td>
-                <td>
+                <td className="flex gap-2">
                   <button
                     onClick={() => handleRemove(item._id)}
                     className="text-3xl font-medium text-red-600"
                   >
                     <MdDeleteForever />
+                  </button>
+                  <button
+                    onClick={() => handleUpdate(item._id)}
+                    className="text-2xl font-medium text-red-600"
+                  >
+                    <GrUpdate />
                   </button>
                 </td>
               </tr>

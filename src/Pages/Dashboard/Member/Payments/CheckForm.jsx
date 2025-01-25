@@ -10,12 +10,12 @@ const CheckOutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [success, setSuccess] = useState("");
-  const [transactionId,setTransactionId] = useState("")
+  const [transactionId, setTransactionId] = useState("");
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
-  const navigate = useNavigate()
-  const { acceptRequest,refetch } = useAcceptedRequest();
+  const navigate = useNavigate();
+  const { acceptRequest, refetch } = useAcceptedRequest();
   const { user } = useContext(AuthContext);
   const price = parseInt(acceptRequest.rent);
 
@@ -26,96 +26,137 @@ const CheckOutForm = () => {
       });
     }
   }, [price]);
+
+  const handleCouponCode = (e) => {
+    e.preventDefault();
+    const couponCode = e.target.couponCode.value;
+    if (price > 50 && couponCode) {
+      axiosSecure
+        .get(`/couponCheck/${couponCode}?email=${user.email}`)
+        .then((res) => {
+          if (res.data.modifiedCount) {
+            refetch();
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Coupon Code Accepted",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!stripe || !elements) {
-        return
+      return;
     }
 
-    const card = elements.getElement(CardElement)
+    const card = elements.getElement(CardElement);
 
     if (card === null) {
-        return
+      return;
     }
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
-        card
-    })
+      type: "card",
+      card,
+    });
 
     if (error) {
-        // console.log('payment error', error);
-        setError(error.message);
-    }
-    else {
-        // console.log('payment method', paymentMethod)
-        setError('');
+      // console.log('payment error', error);
+      setError(error.message);
+    } else {
+      // console.log('payment method', paymentMethod)
+      setError("");
     }
 
     // confirm payment
-    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
-            card: card,
-            billing_details: {
-                email: user?.email || 'anonymous',
-                name: user?.displayName || 'anonymous'
-            }
-        }
-    })
+          card: card,
+          billing_details: {
+            email: user?.email || "anonymous",
+            name: user?.displayName || "anonymous",
+          },
+        },
+      });
 
     if (confirmError) {
       setError(confirmError.message);
-    }
-    else {
-      setError('');
-        if (paymentIntent.status === 'succeeded') {
-            setTransactionId(paymentIntent.id);
+    } else {
+      setError("");
+      if (paymentIntent.status === "succeeded") {
+        setTransactionId(paymentIntent.id);
 
-            const payment = {
-                email: user.email,
-                name: user.displayName,
-                price,
-                transactionId: paymentIntent.id,
-                acceptDate: new Date(), 
-                acceptRequestId: acceptRequest._id,
-                floorNo: acceptRequest.floor_no,
-                blockName: acceptRequest.block_name,
-                apartmentNo: acceptRequest.apartment_no,
-                month: acceptRequest.month
- }
-            
+        const payment = {
+          email: user.email,
+          name: user.displayName,
+          price,
+          transactionId: paymentIntent.id,
+          acceptDate: new Date(),
+          acceptRequestId: acceptRequest._id,
+          floorNo: acceptRequest.floor_no,
+          blockName: acceptRequest.block_name,
+          apartmentNo: acceptRequest.apartment_no,
+          month: acceptRequest.month,
+        };
 
-            const res = await axiosSecure.post(`/payments?acceptRequestId=${acceptRequest._id}&email=${user.email}`, payment);
-            console.log('payment saved', res.data.message);
-            refetch();
-            if (res.data?.paymentResult?.insertedId) {
-                Swal.fire({
-                    position: "top-center",
-                    icon: "success",
-                    title: "Thank you for the taka paisa",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                navigate('/dashboard/paymentHistory')
-            }
-            else{
-              Swal.fire({
-                position: "top-center",
-                icon: "error",
-                title: res.data.message,
-                showConfirmButton: false,
-                timer: 1500
-            });
-            }
-
+        const res = await axiosSecure.post(
+          `/payments?acceptRequestId=${acceptRequest._id}&email=${user.email}`,
+          payment
+        );
+        console.log("payment saved", res.data.message);
+        refetch();
+        if (res.data?.paymentResult?.insertedId) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Thank you for the taka paisa",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/dashboard/paymentHistory");
+        } else {
+          Swal.fire({
+            position: "top-center",
+            icon: "error",
+            title: res.data.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
+      }
     }
-
-}
+  };
 
   return (
     <div className="mt-20">
+      <div className="flex flex-col md:flex-row items-center gap-5 mb-10">
+        <form
+          onSubmit={handleCouponCode}
+          className="flex-1 flex items-center gap-4"
+        >
+          <div className="form-control w-full">
+            <input
+              placeholder="enter Coupon code"
+              name="couponCode"
+              type="text"
+              className="input input-bordered h-14  "
+            />
+          </div>
+          <button className="btn btn-accent text-xl font-medium text-white">
+            Submit
+          </button>
+        </form>
+        <h1 className="flex-1 text-2xl font-semibold text-red-700">
+          Total Cost : {price}tk
+        </h1>
+      </div>
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{

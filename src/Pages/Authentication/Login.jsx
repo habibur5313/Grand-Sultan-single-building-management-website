@@ -73,7 +73,7 @@ const Login = () => {
   };
 
   return (
-    <div className=" flex justify-center items-center">
+    <div className=" flex justify-center items-center mt-20 md:mt-32  lg:mt-40">
       <div className="card bg-base-100 p-5 w-full max-w-lg shrink-0  border">
         <h1 className="text-2xl font-semibold text-center">Login now!</h1>
         <form
@@ -131,6 +131,7 @@ const Login = () => {
           </div>
         </form>
         <div className="divider text-2xl font-medium">OR</div>
+        <div className="flex justify-center">
         <button
           onClick={handleGoogleLogin}
           className="btn text-xl font-medium mt-2 mb-4"
@@ -138,6 +139,7 @@ const Login = () => {
           <IoLogoGoogle />
           Continue with Google
         </button>
+        </div>
         <p className="text-center mb-4 text-black">
           Dont’t Have An Account ?{" "}
           <Link className="text-red-800 text-xl font-medium " to={"/register"}>

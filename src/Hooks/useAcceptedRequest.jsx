@@ -9,7 +9,7 @@ const useAcceptedRequest = () => {
   const { data: acceptRequest = {}, refetch } = useQuery({
     queryKey: ["acceptRequests"],
     queryFn: async () => {
-                    const res = await axiosSecure.get(`acceptRequests/${user?.email}`)
+                    const res = await axiosSecure.get(`/acceptRequests/${user?.email}`)
                     return res.data
                     
     },

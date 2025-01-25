@@ -87,6 +87,7 @@ const Register = () => {
         email: res.user.email,
       };
       axiosPublic.post("/users", userInfo).then((res) => {
+        navigate("/");
         if (res.data.insertedId) {
           Swal.fire({
             position: "top-end",
@@ -95,7 +96,7 @@ const Register = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/");
+          
         }
       });
     })
@@ -110,7 +111,7 @@ const Register = () => {
       });
   };
   return (
-    <div className=" flex justify-center items-center">
+    <div className=" flex justify-center items-center mt-10 md:mt-20 lg:mt-32">
       <div className="card bg-base-100 p-5 w-full max-w-lg shrink-0 border">
         <h1 className="text-2xl font-semibold text-center">Register now!</h1>
         <form
@@ -196,13 +197,15 @@ const Register = () => {
         </form>
 
         <div className="divider text-2xl font-medium">OR</div>
-        <button
+       <div className="flex justify-center">
+       <button
           onClick={handleGoogleLogin}
           className="btn text-xl font-medium mt-2 mb-4"
         >
           <IoLogoGoogle />
           Continue with Google
         </button>
+       </div>
         <p className="text-center mb-4 text-black">
           {" "}
           Have An Account ?{" "}
