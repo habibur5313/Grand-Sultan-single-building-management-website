@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { MdDeleteForever } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import { GrUpdate } from "react-icons/gr";
+import useCoupons from "../../../Hooks/useCoupons";
 const ManageCoupons = () => {
   const [open, setOpen] = useState(false);
 
@@ -13,13 +14,15 @@ const ManageCoupons = () => {
   const onCloseModal = () => setOpen(false);
   const axiosSecure = useAxiosSecure();
 
-  const { data: coupons = [], refetch } = useQuery({
-    queryKey: ["couponCodes"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/couponCodes");
-      return res.data;
-    },
-  });
+  // const { data: coupons = [], refetch } = useQuery({
+  //   queryKey: ["couponCodes"],
+  //   queryFn: async () => {
+  //     const res = await axiosSecure.get("/couponCodes");
+  //     return res.data;
+  //   },
+  // });
+
+  const [coupons,refetch] = useCoupons()
 
   const handleAddCoupon = (e) => {
     e.preventDefault();

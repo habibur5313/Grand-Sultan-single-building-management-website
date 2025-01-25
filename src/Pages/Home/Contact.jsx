@@ -77,7 +77,7 @@ const Contact = () => {
         <div className="flex-1 mt-5 space-y-3  md:ml-10">
           <h4 className="flex items-center gap-3 text-xl font-medium">
             <FaLocationDot className="text-3xl font-semibold text-red-600" />{" "}
-            Sylhet , Bangladesh.
+            Dhaka, Bangladesh.
           </h4>
           <p className="flex items-center gap-3 text-xl font-medium">
             <FaWhatsappSquare className="text-3xl font-semibold text-green-500" />{" "}
