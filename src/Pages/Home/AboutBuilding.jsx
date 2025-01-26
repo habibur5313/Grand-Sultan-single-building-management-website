@@ -8,8 +8,8 @@ const AboutBuilding = () => {
           About the building
         </h1>
         <p className="text-xl font-medium text-center max-w-xl mx-auto mt-4">
-          Welcome to Build Care, a marvel of modern architecture nestled in the
-          heart of Dhaka. Our building stands as a testament to innovative
+          Welcome to Grand Sultan Tea Resort & Golf, a marvel of modern architecture nestled in the
+          heart of Sreemangal. Our building stands as a testament to innovative
           design, sustainable practices, and community-centric spaces.
         </p>
       </div>
@@ -18,7 +18,7 @@ const AboutBuilding = () => {
           <h2 className="text-3xl font-semibold">Building Details</h2>
           <div className="text-xl font-medium">
             <p>
-              <span className="text-2xl">Location:</span> Dhaka,Bangladesh
+              <span className="text-2xl">Location:</span> Sreemangal,Bangladesh
             </p>
             <p>
               <span className="text-2xl">Year Completed:</span> 2020

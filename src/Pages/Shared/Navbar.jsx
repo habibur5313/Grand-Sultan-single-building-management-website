@@ -42,7 +42,7 @@ const Navbar = ({ toggleDarkMode }) => {
             alt=""
           />
           <h1 className="text-2xl font-medium sm:text-3xl md:text-4xl sm:font-semibold text-purple-500">
-            BuildCare
+            Grand<span className="ml-1">Sultan</span>
           </h1>
         </div>
       </div>

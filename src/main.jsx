@@ -25,6 +25,7 @@ import AdminRoute from "./Route/AdminRoute";
 import MemberAnnouncement from "./Pages/Dashboard/Member/MemberAnnouncement";
 import Payments from "./Pages/Dashboard/Member/Payments/Payments";
 import MemberRoute from "./Route/MemberRoute";
+import { Toaster } from "react-hot-toast";
 
 
 const queryClient = new QueryClient();
@@ -126,6 +127,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <Toaster />
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <RouterProvider router={router} />
