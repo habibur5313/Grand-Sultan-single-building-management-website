@@ -54,7 +54,7 @@ const Apartment = () => {
 
   return (
     <div>
-      {apartments.length >= 1 && (
+      
         <div className="w-11/12 mb-8 lg:w-9/12 xl:w-7/12 2xl:w-6/12  mx-auto">
           <input
             type="search"
@@ -65,7 +65,6 @@ const Apartment = () => {
             id=""
           />
         </div>
-      )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {apartments.map((apartment) => (
           <ApartmentCard

@@ -44,3 +44,6 @@
 - Search options to find apartments based on rent.
 ## Elegant Footer
 - A well-crafted footer with social media links and relevant website information.
+
+# NPM Package Used
+- DasiyUi, React Icons, React Hot Toast, React Modal, Sweet Alert, Swiper.js

@@ -34,7 +34,7 @@ const Footer = () => {
     </div>
   </nav>
   <aside>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by Volunteer Network</p>
+    <p>Copyright © {new Date().getFullYear()} - All right reserved by Grand Sultan</p>
   </aside>
 </footer>
     </div>
