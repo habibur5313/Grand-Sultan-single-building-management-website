@@ -3,6 +3,9 @@ import ApartmentCard from "./AparmentCard";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Apartment = () => {
+    useEffect(() => {
+      document.title = "Apartments | Grand Sultan";
+    }, []);
   const [apartments, setApartments] = useState([]);
   const axiosPublic = useAxiosPublic();
 

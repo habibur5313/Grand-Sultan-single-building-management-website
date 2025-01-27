@@ -8,7 +8,7 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Login = () => {
   useEffect(() => {
-    document.title = "Login | Volunteer Network ";
+    document.title = "Login | Grand Sultan ";
   }, []);
   const { SignInEmailAndPassword, SignInGoogle } = useContext(AuthContext);
   const navigate = useNavigate();

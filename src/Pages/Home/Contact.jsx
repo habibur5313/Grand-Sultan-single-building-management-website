@@ -40,12 +40,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="mt-10 bg-accent rounded-xl p-0 sm:p-5 md:p-10 xl:p-20">
-      <h1 className="text-4xl mb-4 font-bold text-center uppercase text-purple-700">
+    <>
+      <h1 className="text-4xl mt-20 font-bold text-center uppercase text-purple-600">
         Contact Us
       </h1>
-      <div className="flex flex-col-reverse md:flex-row  w-full mx-auto">
-        <form className="flex-1" ref={form} onSubmit={sendEmail}>
+      <div className="flex flex-col-reverse md:flex-row bg-purple-600 text-white py-10 sm:px-10 rounded-xl mt-10  w-full mx-auto">
+        <form className="flex-1 text-black" ref={form} onSubmit={sendEmail}>
           <div className="form-control">
             <label className="label">
               <span className="label-text text-white">Email</span>
@@ -77,7 +77,7 @@ const Contact = () => {
         <div className="flex-1 mt-5 space-y-3  md:ml-10">
           <h4 className="flex items-center gap-3 text-xl font-medium">
             <FaLocationDot className="text-3xl font-semibold text-red-600" />{" "}
-            Dhaka, Bangladesh.
+            Sreemangal, Bangladesh.
           </h4>
           <p className="flex items-center gap-3 text-xl font-medium">
             <FaWhatsappSquare className="text-3xl font-semibold text-green-500" />{" "}
@@ -93,7 +93,7 @@ const Contact = () => {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

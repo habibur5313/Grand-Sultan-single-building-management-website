@@ -3,6 +3,9 @@ import { AuthContext } from "../../../Context/AuthProvider";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const MemberProfile = () => {
+    useEffect(() => {
+      document.title = "Profile | Grand Sultan ";
+    }, []);
   const [paymentHistory, setPaymentHistory] = useState();
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);

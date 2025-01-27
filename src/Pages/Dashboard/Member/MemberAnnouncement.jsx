@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const MemberAnnouncement = () => {
+    useEffect(() => {
+      document.title = "Announcement | Grand Sultan ";
+    }, []);
   const [announcements, setAnnouncements] = useState([]);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {

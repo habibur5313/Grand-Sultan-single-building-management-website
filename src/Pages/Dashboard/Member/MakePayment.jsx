@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useAcceptedRequest from "../../../Hooks/useAcceptedRequest";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const MakePayment = () => {
+    useEffect(() => {
+      document.title = "Make Payment | Grand Sultan ";
+    }, []);
   const { acceptRequest } = useAcceptedRequest();
   const {user} = useContext(AuthContext)
   const axiosSecure = useAxiosSecure()

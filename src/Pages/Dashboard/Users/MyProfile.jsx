@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const MyProfile = () => {
   const { user } = useContext(AuthContext);
-  
+    useEffect(() => {
+      document.title = "Profile  | Grand Sultan ";
+    }, []);
   return (
     <div className="card card-compact bg-base-100 flex flex-col justify-center items-center mt-20 shadow-xl">
     <figure>

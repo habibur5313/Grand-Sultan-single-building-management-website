@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useAgreementsRequest from "../../../Hooks/useAgrementsRequest";
 import RequestCard from "./RequestCard";
 
 const AllUsers = () => {
+    useEffect(() => {
+      document.title = "Agreement Request | Grand Sultan ";
+    }, []);
   const [requests] = useAgreementsRequest()
   
   return (

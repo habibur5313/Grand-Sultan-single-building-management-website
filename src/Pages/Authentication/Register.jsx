@@ -10,7 +10,7 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
   useEffect(() => {
-    document.title = "Register | Volunteer Network";
+    document.title = "Register | Grand Sultan";
   }, []);
   const { SignUpEmailAndPassword, SignInGoogle, Update_information } =
     useContext(AuthContext);

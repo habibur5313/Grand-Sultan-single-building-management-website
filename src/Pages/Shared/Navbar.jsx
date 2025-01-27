@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useRole from "../../Hooks/useRole";
+import { FaCircleArrowUp } from "react-icons/fa6";
 
 const Navbar = ({ toggleDarkMode }) => {
   const { user, handleSignOut } = useContext(AuthContext);
   const { role } = useRole();
+  const styles = { fixedIcon: { position: 'fixed', bottom: '20px', right: '20px', width: '50px', height: '50px', cursor: 'pointer' }}
 
+  const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' });}
   return (
     <div className=" navbar  px-2 md:px-6 xl:px-10  flex items-center border fixed container mx-auto text-white bg-black bg-opacity-20 z-50 rounded-xl  ">
       <div className="navbar-start mb-10">
@@ -74,7 +77,7 @@ const Navbar = ({ toggleDarkMode }) => {
             </li>
             <li>
               <NavLink to={`/dashboard/${role ? role : "user"}Profile`}>
-                dashboard
+                Dashboard
               </NavLink>
             </li>
             <li>
@@ -126,7 +129,7 @@ const Navbar = ({ toggleDarkMode }) => {
                   </li>
                   <li className="text-xl font-medium">
                     <NavLink to={`/dashboard/${role ? role : "user"}Profile`}>
-                      dashboard
+                      Dashboard
                     </NavLink>
                   </li>
                   <li>
@@ -149,6 +152,7 @@ const Navbar = ({ toggleDarkMode }) => {
             </Link>
           }
         </div>
+        <div style={styles.fixedIcon} onClick={scrollToTop}> <FaCircleArrowUp className="text-4xl font-semibold text-purple-600" /></div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
@@ -8,19 +8,14 @@ import { useQuery } from "@tanstack/react-query";
 import { GrUpdate } from "react-icons/gr";
 import useCoupons from "../../../Hooks/useCoupons";
 const ManageCoupons = () => {
+    useEffect(() => {
+      document.title = "Manage Coupon | Grand Sultan ";
+    }, []);
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
   const axiosSecure = useAxiosSecure();
-
-  // const { data: coupons = [], refetch } = useQuery({
-  //   queryKey: ["couponCodes"],
-  //   queryFn: async () => {
-  //     const res = await axiosSecure.get("/couponCodes");
-  //     return res.data;
-  //   },
-  // });
 
   const [coupons,refetch] = useCoupons()
 

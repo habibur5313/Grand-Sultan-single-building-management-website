@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import useRole from "../Hooks/useRole";
 import { FaHistory, FaHome } from "react-icons/fa";
@@ -10,6 +10,9 @@ import { TfiAnnouncement } from "react-icons/tfi";
 import { FaCodePullRequest } from "react-icons/fa6";
 import { RiCoupon2Fill } from "react-icons/ri";
 const Dashboard = () => {
+    useEffect(() => {
+      document.title = "Dashboard | Grand Sultan ";
+    }, []);
   const { role } = useRole();
   const [menu, setMenu] = useState(false);
 

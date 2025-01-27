@@ -3,6 +3,9 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const PaymentHistory = () => {
+    useEffect(() => {
+      document.title = "History | Grand Sultan ";
+    }, []);
   const [paymentHistory, setPaymentHistory] = useState();
   
   const axiosSecure = useAxiosSecure();

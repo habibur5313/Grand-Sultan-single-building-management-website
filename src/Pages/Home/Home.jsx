@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "./Banner";
 import Contact from "./Contact";
 import AboutBuilding from "./AboutBuilding";
@@ -7,6 +7,9 @@ import LowPriceApartments from "./LowPriceApartments";
 import LocationMap from "./locationMap";
 
 const Home = () => {
+    useEffect(() => {
+      document.title = "Home | Grand Sultan ";
+    }, []);
   return (
     <div>
       <Banner></Banner>

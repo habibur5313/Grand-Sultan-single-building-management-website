@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useMembers from "../../../Hooks/useMembers";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ManageMembers = () => {
+    useEffect(() => {
+      document.title = "Manage Members | Grand Sultan ";
+    }, []);
   const [members, refetch] = useMembers();
   // console.log(members);
   const axiosSecure = useAxiosSecure();

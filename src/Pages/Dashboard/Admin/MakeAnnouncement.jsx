@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const MakeAnnouncement = () => {
+    useEffect(() => {
+      document.title = "Make Announcement | Grand Sultan ";
+    }, []);
   const axiosSecure = useAxiosSecure();
   const handleMakeAnnouncement = (e) => {
     e.preventDefault();
