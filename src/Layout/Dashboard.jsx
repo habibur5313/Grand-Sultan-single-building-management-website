@@ -39,12 +39,13 @@ const Dashboard = () => {
           className="toggle theme-controller"
         />
       </button>
-      <div
-        className={`
+     <div className={`
           ${
             darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
-          } container mx-auto 
-        `}
+          }
+        `}>
+     <div
+        className="container mx-auto"
       >
         {/* admin role */}
         {role === "admin" && (
@@ -505,6 +506,7 @@ const Dashboard = () => {
           </div>
         )}
       </div>
+     </div>
     </>
   );
 };
