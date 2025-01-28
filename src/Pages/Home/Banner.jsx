@@ -20,8 +20,7 @@ const Banner = () => {
     <div className=" ">
       {user && (
         <h1 className="text-3xl mb-10 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
-          {/*  */}
-          Hello {user.displayName},Welcome To
+          Hello {user.displayName}, Welcome To
           <Typewriter
             words={[" Home", " Website"]}
             loop={30}
@@ -33,6 +32,7 @@ const Banner = () => {
           />
         </h1>
       )}
+      
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

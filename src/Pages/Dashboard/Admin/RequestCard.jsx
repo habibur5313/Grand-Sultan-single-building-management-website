@@ -61,7 +61,7 @@ const RequestCard = ({ request }) => {
       });
   };
   return (
-    <div className=" bg-base-100 shadow-xl ">
+    <div className="shadow-xl ">
       <div className="h-full image-full border rounded-xl">
         <figure className="">
           <img

@@ -3,11 +3,11 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const PaymentHistory = () => {
-    useEffect(() => {
-      document.title = "History | Grand Sultan ";
-    }, []);
+  useEffect(() => {
+    document.title = "History | Grand Sultan ";
+  }, []);
   const [paymentHistory, setPaymentHistory] = useState();
-  
+
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   useEffect(() => {
@@ -31,14 +31,14 @@ const PaymentHistory = () => {
           </tr>
         </thead>
         <tbody>
-
+          {paymentHistory && (
             <tr>
               <th>1</th>
               <td>{paymentHistory?.email}</td>
               <td>{paymentHistory?.price} tk</td>
               <td>{paymentHistory?.transactionId}</td>
             </tr>
-
+          )}
         </tbody>
       </table>
     </>

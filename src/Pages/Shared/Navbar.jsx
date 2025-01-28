@@ -3,156 +3,119 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useRole from "../../Hooks/useRole";
 import { FaCircleArrowUp } from "react-icons/fa6";
+import { MdApartment, MdDashboard, MdOutlineMenu } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
 
 const Navbar = ({ toggleDarkMode }) => {
   const { user, handleSignOut } = useContext(AuthContext);
   const { role } = useRole();
-  const styles = { fixedIcon: { position: 'fixed', bottom: '20px', right: '20px', width: '50px', height: '50px', cursor: 'pointer' }}
+  const styles = {
+    fixedIcon: {
+      position: "fixed",
+      bottom: "20px",
+      right: "20px",
+      width: "50px",
+      height: "50px",
+      cursor: "pointer",
+    },
+  };
 
-  const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' });}
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
-    <div className=" navbar  px-2 md:px-6 xl:px-10  flex items-center border fixed container mx-auto text-white bg-black bg-opacity-20 z-50 rounded-xl  ">
-      <div className="navbar-start mb-10">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className=" menu menu-sm dropdown-content bg-base-100  rounded-box z-50 mt-3 w-52 p-2 shadow text-black"
-          >
-            <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/apartment"}>Apartment</NavLink>
-          </ul>
-        </div>
-        <div className="flex items-center gap-2">
+    <div className=" px-2 md:px-6 xl:px-10 py-6  flex items-center justify-between border fixed container mx-auto text-white bg-black bg-opacity-20 z-50 rounded-xl  ">
+      <div className="">
+        <div className="flex items-center gap-1 sm:gap-2">
           <img
-            className="w-10 rounded-xl"
+            className="w-6 sm:w-10 xl:w-14 rounded-xl"
             src="https://i.ibb.co.com/ZBCgXsd/One-Build-Care-logo.jpg"
             alt=""
           />
-          <h1 className="text-2xl font-medium sm:text-3xl md:text-4xl sm:font-semibold text-purple-500">
+          <h1 className="text-xl font-medium sm:text-3xl md:text-4xl sm:font-semibold text-purple-500">
             Grand<span className="ml-1">Sultan</span>
           </h1>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex -mt-6">
-        <ul className="menu menu-horizontal flex items-center px-1 gap-2 xl:gap-4 text-xl font-medium ">
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/apartment"}>Apartment</NavLink>
+      <div className=" hidden lg:flex">
+        <ul className="flex items-center gap-4 text-xl font-medium ">
+        <NavLink className='flex gap-1 items-center' to={"/"}><FaHome />Home</NavLink>
+        <NavLink className='flex gap-1 items-center' to={"/apartment"}><MdApartment />Apartment</NavLink>
         </ul>
       </div>
-      <div className="navbar-end sm:hidden">
-        <div className="dropdown dropdown-hover">
-          <div tabIndex={0} role="button" className=" m-1">
-            {user && (
-              <img
-                className="w-10 rounded-full my-anchor-element cursor-pointer"
-                src={user?.photoURL}
-                alt="userImg"
-              />
-            )}
+      <div className="flex gap-2 items-center">
+        <div className="dropdown dropdown-end lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="text-2xl font-medium sm:text-3xl sm:font-semibold text-purple-600"
+          >
+            <MdOutlineMenu />
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu bg-black rounded-box z-20 -ml-24 lg:w-60 p-2 shadow"
+            className="dropdown-content menu bg-base-100 text-black rounded-box z-[1] w-52 p-2 shadow"
           >
-            <li>
-              <p className="text-white text-xl font-medium">
-                {user?.displayName}
-              </p>
-            </li>
-            <li>
-              <NavLink to={`/dashboard/${role ? role : "user"}Profile`}>
-                Dashboard
-              </NavLink>
-            </li>
-            <li>
-              <button
-                className="btn bg-purple-700 text-white"
-                onClick={handleSignOut}
-              >
-                Sign Out
-              </button>
-            </li>
+            <NavLink className='flex gap-1 items-center' to={"/"}><FaHome />Home</NavLink>
+            <NavLink className='flex gap-1 items-center' to={"/apartment"}><MdApartment />Apartment</NavLink>
           </ul>
         </div>
-        {user ? '' : (
-          <Link className="btn mr-5 bg-purple-700 text-white" to={"/login"}>
-            Sign In
-          </Link>
-        )}
-      </div>
-      <div className=" navbar-end hidden sm:block -mt-5">
-        <div className="flex items-center ml-10 md:ml-20 xl:ml-52 -mt-2 justify-end">
-          <button
-            onClick={toggleDarkMode}
-            className="p-2 lg:m-4 border rounded"
-          >
+        <div className="hidden sm:block">
+          <button onClick={toggleDarkMode} className="">
             <input
               type="checkbox"
               value="synthwave"
               className="toggle theme-controller"
             />
           </button>
+        </div>
+        <div>
           {user ? (
-            <div className="flex items-center gap-4 relative">
-              <div className="dropdown dropdown-hover">
-                <div tabIndex={0} role="button" className=" m-1">
-                  <img
-                    className="w-10 rounded-full my-anchor-element cursor-pointer"
-                    src={user?.photoURL}
-                    alt="userImg"
-                  />
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu bg-black rounded-box z-20 -ml-24 lg:w-60 p-2 shadow"
-                >
-                  <li>
-                    <p className="text-white text-xl font-medium">
-                      {user?.displayName}
-                    </p>
-                  </li>
-                  <li className="text-xl font-medium">
-                    <NavLink to={`/dashboard/${role ? role : "user"}Profile`}>
-                      Dashboard
-                    </NavLink>
-                  </li>
-                  <li>
-                    <button
-                      className="btn bg-purple-700 text-white"
-                      onClick={handleSignOut}
-                    >
-                      Sign Out
-                    </button>
-                  </li>
-                </ul>
+            <div className="dropdown dropdown-hover dropdown-end">
+              <div tabIndex={0} role="button" className="">
+                <img
+                  className="w-10 sm:w-14 rounded-full my-anchor-element cursor-pointer"
+                  src={user?.photoURL}
+                  alt="userImg"
+                />
               </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu shadow bg-black text-white rounded-xl z-50"
+              >
+                <li>
+                  <p className=" text-xl font-medium">
+                    {user?.displayName}
+                  </p>
+                </li>
+                <li>
+                  <NavLink className='flex items-center gap-1' to={`/dashboard/${role ? role : "user"}Profile`}>
+                  <MdDashboard />Dashboard
+                  </NavLink>
+                </li>
+                <li>
+                  <button
+                    className="border"
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </button>
+                  <button  onClick={toggleDarkMode} className="md:hidden">
+                    <input
+                      type="checkbox"
+                      value="synthwave"
+                      className="toggle theme-controller"
+                    />
+                  </button>
+                </li>
+              </ul>
             </div>
-          ) : 
-            <Link
-              className="btn mr-5 bg-purple-700 text-white"
-              to={"/login"}
-            >
+          ) : (
+            <Link className="btn bg-purple-700 text-white" to={"/login"}>
               Sign In
             </Link>
-          }
+          )}
         </div>
-        <div style={styles.fixedIcon} onClick={scrollToTop}> <FaCircleArrowUp className="text-4xl font-semibold text-purple-600" /></div>
       </div>
     </div>
   );

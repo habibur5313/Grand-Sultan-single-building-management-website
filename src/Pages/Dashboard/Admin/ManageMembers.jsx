@@ -45,7 +45,7 @@ const ManageMembers = () => {
           </thead>
           <tbody>
             {members.map((member, idx) => (
-              <tr key={member._id} className="bg-base-200">
+              <tr key={member._id}>
                 <th>{idx + 1}</th>
                 <td>{member.name}</td>
                 <td>{member.email}</td>

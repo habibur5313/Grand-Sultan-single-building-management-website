@@ -15,7 +15,7 @@ const MemberProfile = () => {
     });
   }, []);
   return (
-    <div className="card card-compact bg-base-100 flex flex-col justify-center items-center mt-20 shadow-xl">
+    <div className="card card-compact flex flex-col justify-center items-center mt-20 shadow-xl">
       <figure>
         <img className="w-20 rounded-xl" src={user?.photoURL} alt="Shoes" />
       </figure>
@@ -24,7 +24,7 @@ const MemberProfile = () => {
         <div className="text-xl font-medium">
         <p>email: {user.email}</p>
         {/* <p>Agreement accept time: {paymentHistory?.acceptDate.split('T')[1].split('.')[0]}</p> */}
-        <p>Agreement accept date: {paymentHistory?.acceptDate.split("T")[0]}</p>
+        <p>Agreement accept date: {paymentHistory?.acceptDate?.split("T")[0]}</p>
         <p>Floor No: {paymentHistory?.floorNo}</p>
         <p>Block Name: {paymentHistory?.blockName}</p>
         <p>Room No: {paymentHistory?.apartmentNo}</p>

@@ -59,7 +59,7 @@ const ApartmentCard = ({ apartment }) => {
       });
   };
   return (
-    <div className=" bg-base-100 shadow-xl rounded-xl">
+    <div className="shadow-xl rounded-xl">
       <div className="h-full image-full">
         <figure className="">
           <img

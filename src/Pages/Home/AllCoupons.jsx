@@ -16,7 +16,7 @@ const AllCoupons = () => {
       </p>
       <div className="grid gap-4 mt-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {coupons.map((coupon) => (
-          <div key={coupon._id} className="card bg-base-100 shadow-xl">
+          <div key={coupon._id} className="card shadow-xl">
             <div className="card-body">
               <div className="flex items-center gap-2">
               <h2 className="card-title">{coupon?.couponCode}</h2>

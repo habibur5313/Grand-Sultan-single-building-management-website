@@ -89,7 +89,7 @@ const Contact = () => {
           </p>
           <p className="flex items-center gap-3 text-xl font-medium">
             <MdAttachEmail className="text-3xl font-semibold text-red-700" />
-            habiburmamun313@gmail.com
+            habiburmamun313 @gmail.com
           </p>
         </div>
       </div>

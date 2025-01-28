@@ -13,7 +13,7 @@ const LowPriceApartments = () => {
   }, []);
   return (
     <>
-      <h1 className="text-4xl mt-20 text-purple-600 uppercase font-bold text-center">
+      <h1 className="text-2xl font-semibold sm:text-4xl sm:font-bold mt-20 text-purple-600 uppercase text-center">
          Low price apartments
       </h1>
       <p className="text-xl font-medium text-center max-w-xl mx-auto mt-4">
