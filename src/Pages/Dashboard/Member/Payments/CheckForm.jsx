@@ -139,7 +139,7 @@ const CheckOutForm = () => {
       <div className="flex flex-col md:flex-row items-center gap-5 mb-10">
         <form
           onSubmit={handleCouponCode}
-          className="flex-1 flex items-center gap-4 text-black"
+          className="flex-1 flex flex-col sm:flex-row items-center gap-4 text-black"
         >
           <div className="form-control w-full">
             <input
