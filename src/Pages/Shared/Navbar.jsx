@@ -39,8 +39,14 @@ const Navbar = ({ toggleDarkMode }) => {
       </div>
       <div className=" hidden lg:flex">
         <ul className="flex items-center gap-4 text-xl font-medium ">
-        <NavLink className='flex gap-1 items-center' to={"/"}><FaHome />Home</NavLink>
-        <NavLink className='flex gap-1 items-center' to={"/apartment"}><MdApartment />Apartment</NavLink>
+          <NavLink className="flex gap-1 items-center" to={"/"}>
+            <FaHome />
+            Home
+          </NavLink>
+          <NavLink className="flex gap-1 items-center" to={"/apartment"}>
+            <MdApartment />
+            Apartment
+          </NavLink>
         </ul>
       </div>
       <div className="flex gap-2 items-center">
@@ -56,8 +62,14 @@ const Navbar = ({ toggleDarkMode }) => {
             tabIndex={0}
             className="dropdown-content menu bg-base-100 text-black rounded-box z-[1] w-52 p-2 shadow"
           >
-            <NavLink className='flex gap-1 items-center' to={"/"}><FaHome />Home</NavLink>
-            <NavLink className='flex gap-1 items-center' to={"/apartment"}><MdApartment />Apartment</NavLink>
+            <NavLink className="flex gap-1 items-center" to={"/"}>
+              <FaHome />
+              Home
+            </NavLink>
+            <NavLink className="flex gap-1 items-center" to={"/apartment"}>
+              <MdApartment />
+              Apartment
+            </NavLink>
           </ul>
         </div>
         <div className="hidden sm:block">
@@ -84,23 +96,22 @@ const Navbar = ({ toggleDarkMode }) => {
                 className="dropdown-content menu shadow bg-black text-white rounded-xl z-50"
               >
                 <li>
-                  <p className=" text-xl font-medium">
-                    {user?.displayName}
-                  </p>
+                  <p className=" text-xl font-medium">{user?.displayName}</p>
                 </li>
                 <li>
-                  <NavLink className='flex items-center gap-1' to={`/dashboard/${role ? role : "user"}Profile`}>
-                  <MdDashboard />Dashboard
+                  <NavLink
+                    className="flex items-center gap-1"
+                    to={`/dashboard/${role ? role : "user"}Profile`}
+                  >
+                    <MdDashboard />
+                    Dashboard
                   </NavLink>
                 </li>
                 <li>
-                  <button
-                    className="border"
-                    onClick={handleSignOut}
-                  >
+                  <button className="border" onClick={handleSignOut}>
                     Sign Out
                   </button>
-                  <button  onClick={toggleDarkMode} className="md:hidden">
+                  <button onClick={toggleDarkMode} className="md:hidden">
                     <input
                       type="checkbox"
                       value="synthwave"
@@ -116,6 +127,10 @@ const Navbar = ({ toggleDarkMode }) => {
             </Link>
           )}
         </div>
+      </div>
+      <div style={styles.fixedIcon} onClick={scrollToTop}>
+        {" "}
+        <FaCircleArrowUp className="text-4xl font-semibold text-purple-600" />
       </div>
     </div>
   );
