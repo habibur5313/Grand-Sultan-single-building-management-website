@@ -10,7 +10,7 @@
 - The purpose of the website is to facilitate apartment bookings by providing a seamless and user-friendly platform where users can browse, search, and book apartments, while also offering secure authentication, dynamic visuals, comprehensive building information, prominent coupon displays, and personalized dashboards for users, members, and admins. This ensures an engaging experience, simplifies the agreement process, and enables effective management of members and announcements, all while ensuring the website is fully responsive and includes interactive location details for easy navigation.
 
 # live URL
-- https://habibur-ph-assignment-12.surge.sh/
+- https://grand-sultan-building-management-web.surge.sh/
 
 # Server Code URL
 - https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-habibur5313

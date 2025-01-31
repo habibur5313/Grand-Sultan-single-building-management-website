@@ -110,7 +110,7 @@ const CheckOutForm = () => {
           `/payments?acceptRequestId=${acceptRequest._id}&email=${user.email}`,
           payment
         );
-        console.log("payment saved", res.data.message);
+        // console.log("payment saved", res.data.message);
         refetch();
         if (res.data?.paymentResult?.insertedId) {
           Swal.fire({
