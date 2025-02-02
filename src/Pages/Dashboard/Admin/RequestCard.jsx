@@ -57,7 +57,7 @@ const RequestCard = ({ request }) => {
           });
           refetch();
         }
-        console.log(res.data);
+        // console.log(res.data);
       });
   };
   return (

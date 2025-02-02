@@ -13,7 +13,7 @@
 - https://grand-sultan-building-management-web.surge.sh/
 
 # Server Code URL
-- https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-habibur5313
+- https://github.com/habibur5313/Grand-sultan-server
 
 # Key Features
 ## User-Friendly Navigation
