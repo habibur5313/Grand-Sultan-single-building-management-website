@@ -37,7 +37,7 @@
 ## Installation  
 ### 1. Clone the Repository  
 ```bash
-git clone https://github.com/habibur5313/Grand-sultan-server.git
+git clone https://github.com/habibur5313/Grand-Sultan-single-building-management-website-.git
 cd Grand-sultan-server
 ```
 ### 2. Install Dependencies  
@@ -92,5 +92,3 @@ This project is licensed under the **MIT License**.
 
 ⭐ **Enjoy using Grand Sultal and make apartment booking easier than ever!**  
 ```
-
-This **README** provides a professional, structured, and user-friendly guide for setting up, using, and understanding your **Grand Sultal** project. Let me know if you need any modifications! 🚀
