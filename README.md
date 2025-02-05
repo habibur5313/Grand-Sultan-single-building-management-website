@@ -1,49 +1,96 @@
+# Grand Sultal - Building Management System  
 
-# Project Name
+## Introduction  
+**Grand Sultal** is a modern **Building Management System** designed to facilitate **apartment bookings** with a seamless and user-friendly platform. The website offers an engaging experience through dynamic visuals, secure authentication, personalized dashboards, and streamlined agreement processes. It ensures **responsive design** and **interactive location details** to enhance the user experience.  
 
-- Grand Sultal
+## Table of Contents  
+- [Live Demo](#live-demo)  
+- [Features](#features)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Dependencies](#dependencies)  
+- [Configuration](#configuration)  
+- [Contributors](#contributors)  
+- [License](#license)  
 
-# Project Category
-- Building Management
+## Live Demo  
+🚀 **[Grand Sultal Live Website](https://grand-sultan-building-management-web.surge.sh/)**  
 
-# Purpose
-- The purpose of the website is to facilitate apartment bookings by providing a seamless and user-friendly platform where users can browse, search, and book apartments, while also offering secure authentication, dynamic visuals, comprehensive building information, prominent coupon displays, and personalized dashboards for users, members, and admins. This ensures an engaging experience, simplifies the agreement process, and enables effective management of members and announcements, all while ensuring the website is fully responsive and includes interactive location details for easy navigation.
+🔗 **[Server Code Repository](https://github.com/habibur5313/Grand-sultan-server)**  
 
-# live URL
-- https://grand-sultan-building-management-web.surge.sh/
+## Features  
+✅ **User-Friendly Navigation** – Responsive navbar with dynamic login/logout options.  
+✅ **Dynamic Banner** – High-quality images of apartments with automatic slides.  
+✅ **Detailed Building Information** – Well-structured section with engaging details.  
+✅ **Prominent Coupons Display** – Eye-catching deals for users.  
+✅ **Location & Directions** – Integrated map for seamless navigation.  
+✅ **Secure Authentication** – Email/password and Google login for user security.  
+✅ **Apartment Listings** – Informative apartment details with rent and agreement options.  
+✅ **Streamlined Agreement Process** – Real-time status updates and secure data storage.  
+✅ **User Dashboard** – Personalized profile and announcements.  
+✅ **Member Dashboard** – Payment options, history, and announcements.  
+✅ **Admin Dashboard** – Manage members, agreements, and announcements.  
+✅ **Responsive Design** – Works perfectly on desktops, tablets, and mobiles.  
+✅ **Advanced Search Functionality** – Find apartments based on rent.  
+✅ **Elegant Footer** – Includes social media links and website information.  
 
-# Server Code URL
-- https://github.com/habibur5313/Grand-sultan-server
+## Installation  
+### 1. Clone the Repository  
+```bash
+git clone https://github.com/habibur5313/Grand-sultan-server.git
+cd Grand-sultan-server
+```
+### 2. Install Dependencies  
+```bash
+npm install
+```
+### 3. Set Up Environment Variables  
+Create a `.env.local` file and add the following credentials:  
+```env
+VITE_apiKey=your_api_key_here
+VITE_authDomain=your_auth_domain_here
+VITE_projectId=your_project_id_here
+VITE_storageBucket=your_storage_bucket_here
+VITE_messagingSenderId=your_messaging_sender_id_here
+VITE_appId=your_app_id_here
+VITE_api=https://assignment-12-server-phi-olive.vercel.app
+```
 
-# Key Features
-## User-Friendly Navigation
-- Effortless navigation with a responsive navbar, conditional login/logout/profile options for an enhanced user experience.
-## Dynamic Banner
-- Captivating banner showcasing high-quality images of the building/apartments with automatic slides.
-## Detailed Building Information
-- An aesthetically pleasing section with comprehensive and engaging details about the building.
-## Prominent Coupons Display
-- Eye-catching display of coupons to attract users and provide enticing deals.
-## Location & Directions
-- Detailed information about the apartment’s location, complemented by an integrated map for easy navigation.
-## Secure Authentication
-- Robust authentication system with email/password-based login, and Google login.
-## Apartment Listings
-- Informative listings with images, floor details, block names, apartment numbers, rent information, and agreement buttons.
-## Streamlined Agreement Process
-- Simplified agreement process with real-time status updates and secure data storage for user-specific information.
-## User Dashboard
-- Personalized dashboard featuring user profiles and announcements.
-## Member Dashboard
-- Exclusive dashboard for members with profile details, payment options, history, and announcements.
-## Admin Dashboard
-- Powerful dashboard for admins to manage members, make announcements, handle agreement requests, and manage coupons.
-## Responsive Design
-- Optimized for all devices, ensuring a seamless user experience on desktops, tablets, and smartphones.
-## Advanced Search Functionality
-- Search options to find apartments based on rent.
-## Elegant Footer
-- A well-crafted footer with social media links and relevant website information.
+### 4. Start the Development Server  
+```bash
+npm run dev
+```
 
-# NPM Package Used
-- DasiyUi, React Icons, React Hot Toast, React Modal, Sweet Alert, Swiper.js
+## Usage  
+1. Open the [Live Website](https://grand-sultan-building-management-web.surge.sh/).  
+2. Sign in using Google authentication or create an account.  
+3. Browse apartment listings and use filters to find suitable apartments.  
+4. View apartment details, apply for agreements, and use available coupons.  
+5. Manage your profile via the **User Dashboard**.  
+6. **Members** can track payments and announcements.  
+7. **Admins** can manage users, agreements, and announcements via the **Admin Dashboard**.  
+
+## Dependencies  
+### **NPM Packages Used**  
+- **UI & Styling**: `daisyUI`, `animate.css`, `swiper.js`  
+- **React Utilities**: `react-icons`, `react-hot-toast`, `react-modal`, `sweetalert2`  
+- **Backend & API**: `axios`, `firebase`, `emailjs`  
+- **State & Routing**: `@tanstack/react-query`, `react-router-dom`  
+- **Payment Integration**: `@stripe/react-stripe-js`, `@stripe/stripe-js`  
+
+## Configuration  
+The project uses **Firebase Authentication** for secure login, **Stripe** for payment handling, and **Google Maps API** for location services. Ensure all **environment variables** are correctly configured in `.env.local` before running the project.  
+
+## Contributors  
+👨‍💻 **Habibur Rahman**  
+- GitHub: [habibur5313](https://github.com/habibur5313)  
+
+## License  
+This project is licensed under the **MIT License**.  
+
+---
+
+⭐ **Enjoy using Grand Sultal and make apartment booking easier than ever!**  
+```
+
+This **README** provides a professional, structured, and user-friendly guide for setting up, using, and understanding your **Grand Sultal** project. Let me know if you need any modifications! 🚀
