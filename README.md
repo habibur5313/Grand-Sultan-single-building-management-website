@@ -1,3 +1,7 @@
+<div align="center">
+  <img height="1000" src="https://i.ibb.co.com/SDgHD0Br/Screenshot-2025-02-05-141733.png"  />
+</div>
+
 # Grand Sultal - Building Management System  
 
 ## Introduction  
@@ -91,4 +95,5 @@ This project is licensed under the **MIT License**.
 ---
 
 ⭐ **Enjoy using Grand Sultal and make apartment booking easier than ever!**  
-```
+
+---
