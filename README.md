@@ -3,6 +3,8 @@
 </div>
 
 # Grand Sultal - Building Management System  
+Admin-email: habiburmamun313@gmail.com
+Admin-password: Mamun123#
 
 ## Introduction  
 **Grand Sultal** is a modern **Building Management System** designed to facilitate **apartment bookings** with a seamless and user-friendly platform. The website offers an engaging experience through dynamic visuals, secure authentication, personalized dashboards, and streamlined agreement processes. It ensures **responsive design** and **interactive location details** to enhance the user experience.  
