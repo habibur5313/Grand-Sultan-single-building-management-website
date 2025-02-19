@@ -17,7 +17,7 @@ const Reviews = () => {
   const axiosPublic = useAxiosPublic();
   useEffect(() => {
     axiosPublic
-      .get("http://localhost:5000/reviews")
+      .get("/reviews")
       .then((res) => setReviews(res.data));
   }, []);
 

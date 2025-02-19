@@ -6,6 +6,7 @@ import AllCoupons from "./AllCoupons";
 import LowPriceApartments from "./LowPriceApartments";
 import LocationMap from "./locationMap";
 import Reviews from "./Reviews";
+import FAQ from "./FAQ";
 
 const Home = () => {
     useEffect(() => {
@@ -23,6 +24,7 @@ const Home = () => {
       </div>
         <Contact></Contact>
         <Reviews></Reviews>
+        <FAQ></FAQ>
       </div>
     </div>
   );

@@ -15,6 +15,9 @@ const Footer = () => {
               <Link to={`/dashboard/${role ? role : "user"}Profile`}>
                 Dashboard
               </Link>
+              <Link to={`/dashboard/${role ? role : "user"}Profile`}>
+                Profile
+              </Link>
   </nav>
   <nav>
     <div className="grid grid-flow-col text-2xl font-medium gap-4">

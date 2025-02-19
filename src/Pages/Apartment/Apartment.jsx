@@ -25,7 +25,7 @@ const Apartment = () => {
   const [selectedCount, setSelectedCount] = useState(1);
   const [total, setTotal] = useState(0);
   // console.log(count);
-  const countPages = Math.ceil(total / 6);
+  const countPages = Math.ceil(total / 8);
   const pages = [...Array(countPages).keys()];
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Apartment = () => {
   }, []);
 
   useEffect(() => {
-    axiosPublic.get(`/apartments?page=${selectedCount}&limit=6`).then((res) => {
+    axiosPublic.get(`/apartments?page=${selectedCount}&limit=8`).then((res) => {
       setApartments(res.data);
     });
   }, [selectedCount]);
@@ -55,7 +55,7 @@ const Apartment = () => {
   const handleSort = e => {
     e.preventDefault()
     const sort = e.target.value
-    axiosPublic.get(`${import.meta.env.VITE_api}/apartments/${sort}`)
+    axiosPublic.get(`/apartments/${sort}`)
     .then(res => {
       setApartments(res.data);
       
@@ -81,7 +81,7 @@ const Apartment = () => {
           <option>sort by rent (Ascending)</option>
         </select>
         </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
         {apartments.map((apartment) => (
           <ApartmentCard
             key={apartment._id}
