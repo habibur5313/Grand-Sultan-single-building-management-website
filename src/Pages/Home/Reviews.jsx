@@ -22,12 +22,15 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-20">
+      <h1 className="text-4xl mt-20 font-bold text-center uppercase text-purple-600">
+        Reviews
+      </h1>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         <div>
           {reviews.map((review) => (
             <SwiperSlide key={review?._id}>
-              <div className="flex flex-col items-center justify-center space-y-5">
+              <div className="flex flex-col items-center justify-center space-y-5 mt-10">
                 <Rating
                   style={{ maxWidth: 180 }}
                   value={review?.rating}
@@ -35,14 +38,9 @@ const Reviews = () => {
                 />
 
                 <p className="max-w-lg text-center mx-auto">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
-                  architecto soluta quos. Non totam assumenda nobis aliquid
-                  laborum! Odio neque repudiandae sit tenetur omnis saepe maxime
-                  eum nesciunt facilis illo. Nihil, eligendi hic voluptate
-                  provident dolor consequuntur culpa tempore voluptatibus
-                  blanditiis ad quis obcaecati ratione a iste ipsa quae aut!
+                  {review?.details}
                 </p>
-                <p className="text-2xl font-medium text-yellow-500">
+                <p className="text-2xl font-medium text-orange-500">
                   {review?.name}
                 </p>
               </div>

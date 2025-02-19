@@ -10,6 +10,7 @@ import {
   MdOutlineMenu,
 } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = ({ toggleDarkMode }) => {
   const { user, handleSignOut } = useContext(AuthContext);
@@ -69,8 +70,8 @@ const Navbar = ({ toggleDarkMode }) => {
                 className="flex items-center gap-1"
                 to={`/dashboard/${role ? role : "user"}Profile`}
               >
-                <MdDashboard />
-                Dashboard
+                  <CgProfile />
+                  Profile
               </NavLink>
             </li>
           )}
@@ -113,8 +114,8 @@ const Navbar = ({ toggleDarkMode }) => {
                   className="flex items-center gap-1"
                   to={`/dashboard/${role ? role : "user"}Profile`}
                 >
-                  <MdDashboard />
-                  Dashboard
+                  <CgProfile />
+                  Profile
                 </NavLink>
               </li>
             )}
