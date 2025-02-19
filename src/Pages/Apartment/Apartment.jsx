@@ -55,9 +55,10 @@ const Apartment = () => {
   const handleSort = e => {
     e.preventDefault()
     const sort = e.target.value
-    axios.get(`${import.meta.env.VITE_api}/apartments/${sort}`)
+    axiosPublic.get(`${import.meta.env.VITE_api}/apartments/${sort}`)
     .then(res => {
       setApartments(res.data);
+      
     
   }
 )}
@@ -76,8 +77,8 @@ const Apartment = () => {
         
         <select onChange={handleSort} className="select select-bordered h-14 max-w-md lg:max-w-xs mx-auto lg:mx-0 w-full">
         <option>sorting</option>
-          <option>sort by price (Descending)</option>
-          <option>sort by price (ascending)</option>
+          <option>sort by rent (Descending)</option>
+          <option>sort by rent (Ascending)</option>
         </select>
         </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
