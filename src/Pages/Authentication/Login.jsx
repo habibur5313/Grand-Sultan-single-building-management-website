@@ -127,7 +127,7 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control  mt-2">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn bg-purple-600 text-white text-xl font-medium">Login</button>
           </div>
         </form>
         <div className="divider text-2xl font-medium">OR</div>

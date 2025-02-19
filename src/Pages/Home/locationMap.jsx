@@ -3,7 +3,7 @@ import React from "react";
 const LocationMap = () => {
   return (
     <>
-      <h1 className="text-3xl mt-20 font-bold text-center text-purple-600">
+      <h1 className="text-3xl  font-bold text-center text-purple-600">
         Grand Sultan Tea Resort & Golf
       </h1>
       <p className="text-xl font-semibold text-center max-w-xl mx-auto mt-4">

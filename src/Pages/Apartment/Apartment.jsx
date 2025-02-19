@@ -52,18 +52,33 @@ const Apartment = () => {
     }
   };
 
+  const handleSort = e => {
+    e.preventDefault()
+    const sort = e.target.value
+    axios.get(`${import.meta.env.VITE_api}/apartments/${sort}`)
+    .then(res => {
+      setApartments(res.data);
+    
+  }
+)}
   return (
     <div>
       
-        <div className="w-11/12 mb-8 lg:w-9/12 xl:w-7/12 2xl:w-6/12  mx-auto">
+        <div className=" flex flex-col sm:flex-row justify-end gap-4 mb-8">
           <input
             type="search"
             name="search"
             onChange={handleSearchByRent}
-            placeholder="search by rent (less than or equal"
-            className="input text-black input-bordered h-14 w-full"
+            placeholder="search by rent (less than or equal)"
+            className="input text-black input-bordered h-14 max-w-md w-full mx-auto lg:mx-0"
             id=""
           />
+        
+        <select onChange={handleSort} className="select select-bordered h-14 max-w-md lg:max-w-xs mx-auto lg:mx-0 w-full">
+        <option>sorting</option>
+          <option>sort by price (Descending)</option>
+          <option>sort by price (ascending)</option>
+        </select>
         </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {apartments.map((apartment) => (

@@ -3,7 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useRole from "../../Hooks/useRole";
 import { FaCircleArrowUp } from "react-icons/fa6";
-import { MdApartment, MdDashboard, MdOutlineMenu } from "react-icons/md";
+import {
+  MdApartment,
+  MdContactMail,
+  MdDashboard,
+  MdOutlineMenu,
+} from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 
 const Navbar = ({ toggleDarkMode }) => {
@@ -38,15 +43,37 @@ const Navbar = ({ toggleDarkMode }) => {
         </div>
       </div>
       <div className=" hidden lg:flex">
-        <ul className="flex items-center gap-4 text-xl font-medium ">
-          <NavLink className="flex gap-1 items-center" to={"/"}>
-            <FaHome />
-            Home
-          </NavLink>
-          <NavLink className="flex gap-1 items-center" to={"/apartment"}>
-            <MdApartment />
-            Apartment
-          </NavLink>
+        <ul className="flex items-center gap-2">
+          <li>
+            <NavLink className="flex gap-1 items-center" to={"/"}>
+              <FaHome />
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="flex gap-1 items-center" to={"/apartment"}>
+              <MdApartment />
+              Apartment
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="flex gap-1 items-center" to={"/contact"}>
+              <MdContactMail />
+              Contact
+            </NavLink>
+          </li>
+
+          {user && (
+            <li>
+              <NavLink
+                className="flex items-center gap-1"
+                to={`/dashboard/${role ? role : "user"}Profile`}
+              >
+                <MdDashboard />
+                Dashboard
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
       <div className="flex gap-2 items-center">
@@ -62,14 +89,35 @@ const Navbar = ({ toggleDarkMode }) => {
             tabIndex={0}
             className="dropdown-content menu bg-base-100 text-black rounded-box z-[1] w-52 p-2 shadow"
           >
-            <NavLink className="flex gap-1 items-center" to={"/"}>
-              <FaHome />
-              Home
+            <li>
+              <NavLink className="flex gap-1 items-center" to={"/"}>
+                <FaHome />
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="flex gap-1 items-center" to={"/apartment"}>
+                <MdApartment />
+                Apartment
+              </NavLink>
+              </li>
+              <li>
+            <NavLink className="flex gap-1 items-center" to={"/contact"}>
+              <MdContactMail />
+              Contact
             </NavLink>
-            <NavLink className="flex gap-1 items-center" to={"/apartment"}>
-              <MdApartment />
-              Apartment
-            </NavLink>
+          </li>
+            {user && (
+              <li>
+                <NavLink
+                  className="flex items-center gap-1"
+                  to={`/dashboard/${role ? role : "user"}Profile`}
+                >
+                  <MdDashboard />
+                  Dashboard
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
         <div className="hidden sm:block">

@@ -11,6 +11,7 @@ const Footer = () => {
   <nav className="flex flex-col sm:flex-row gap-4">
     <Link to={'/'} className="link link-hover">Home</Link>
     <Link to={'/apartment'} className="link link-hover">Apartments</Link>
+    <Link to={'/contact'} className="link link-hover">Contacts</Link>
               <Link to={`/dashboard/${role ? role : "user"}Profile`}>
                 Dashboard
               </Link>

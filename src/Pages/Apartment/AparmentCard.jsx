@@ -82,7 +82,7 @@ const ApartmentCard = ({ apartment }) => {
                   ? handleAddCart
                   : () => navigate("/login", { state: { pathname } })
               }
-              className="btn border-b-4 text-xl font-medium border-b-orange-400 text-orange-400 hover:btn-primary"
+              className="btn border-b-4 text-xl font-medium border-b-orange-400 text-orange-400 hover:bg-purple-600 hover:text-white"
             >
               Agreement
             </button>

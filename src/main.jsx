@@ -27,6 +27,7 @@ import Payments from "./Pages/Dashboard/Member/Payments/Payments";
 import MemberRoute from "./Route/MemberRoute";
 import { Toaster } from "react-hot-toast";
 import Error from "./Error/Error";
+import Contacts from "./Pages/Contact/Contacts";
 
 
 const queryClient = new QueryClient();
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
       {
         path: "/apartment",
         element: <Apartment></Apartment>,
+      
+      },
+      {
+        path: "/contact",
+        element: <Contacts></Contacts>,
       
       },
     ],
