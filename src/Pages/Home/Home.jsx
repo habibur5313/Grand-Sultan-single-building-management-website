@@ -5,6 +5,7 @@ import AboutBuilding from "./AboutBuilding";
 import AllCoupons from "./AllCoupons";
 import LowPriceApartments from "./LowPriceApartments";
 import LocationMap from "./locationMap";
+import Reviews from "./Reviews";
 
 const Home = () => {
     useEffect(() => {
@@ -21,6 +22,7 @@ const Home = () => {
       <LocationMap></LocationMap>
       </div>
         <Contact></Contact>
+        <Reviews></Reviews>
       </div>
     </div>
   );

@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 .vercel
+fake.json
+reviews.json
