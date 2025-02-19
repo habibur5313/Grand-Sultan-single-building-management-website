@@ -92,7 +92,7 @@ const Apartment = () => {
       {apartments.length >= 1 && (
         <div className="flex items-center justify-center gap-3 mt-5">
           <button
-            className="btn mx-3 bg-purple-700 sm:text-xl sm:font-medium text-white"
+            className="btn mx-3 bg-purple-600 sm:text-xl sm:font-medium text-white"
             onClick={handlePrevPage}
           >
             Prev
