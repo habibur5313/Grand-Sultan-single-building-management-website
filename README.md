@@ -43,8 +43,8 @@
 ## Installation  
 ### 1. Clone the Repository  
 ```bash
-git clone https://github.com/habibur5313/Grand-Sultan-single-building-management-website-.git
-cd Grand-Sultan-single-building-management-website-
+git clone https://github.com/habibur5313/Grand-Sultan-single-building-management-website.git
+cd Grand-Sultan-single-building-management-website
 ```
 ### 2. Install Dependencies  
 ```bash
